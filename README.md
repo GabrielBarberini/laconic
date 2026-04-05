@@ -77,21 +77,21 @@ python run.py --update-readme
 <tr>
 <td width="33%">
 
-### Normal (69 tokens)
+### 🗣️ Normal (69 tokens)
 
 > "The reason your React component is re-rendering is likely because you're creating a new object reference on each render cycle. When you pass an inline object as a prop, React's shallow comparison sees it as a different object every time, which triggers a re-render. I'd recommend using useMemo to memoize the object."
 
 </td>
 <td width="33%">
 
-### Caveman (19 tokens)
+### 🪨 Caveman (19 tokens)
 
 > "New object ref each render. Inline object prop = new ref = re-render. Wrap in `useMemo`."
 
 </td>
 <td width="33%">
 
-### Laconic (10 tokens)
+### Λ Laconic (10 tokens)
 
 > "Inline object prop creates new reference. Wrap in `useMemo`."
 
@@ -100,21 +100,21 @@ python run.py --update-readme
 <tr>
 <td>
 
-### Normal
+### 🗣️ Normal
 
 > "Sure! I'd be happy to help you with that. The issue you're experiencing is most likely caused by your authentication middleware not properly validating the token expiry. Let me take a look and suggest a fix."
 
 </td>
 <td>
 
-### Caveman
+### 🪨 Caveman
 
 > "Bug in auth middleware. Token expiry check use `<` not `<=`. Fix:"
 
 </td>
 <td>
 
-### Laconic
+### Λ Laconic
 
 > "Auth middleware expiry check requires `<`. Fix:"
 
