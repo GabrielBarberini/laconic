@@ -29,21 +29,21 @@ Say the minimum. Trust context. Every word earns its place.
 Real token counts from Claude Sonnet 4 via Langdock API. Each prompt sent with a generic system prompt ("You are a helpful assistant") vs the full laconic SKILL.md. Median of 3 trials per mode.
 
 <!-- BENCHMARK-TABLE-START -->
-| Task | Normal (tokens) | Laconic (tokens) | Saved |
-|------|---------------:|----------------:|------:|
-| Explain React re-render bug | 901 | 102 | 89% |
-| Fix auth middleware token expiry | 1125 | 85 | 92% |
-| Set up PostgreSQL connection pool | 2207 | 346 | 84% |
-| Explain git rebase vs merge | 899 | 389 | 57% |
-| Refactor callback to async/await | 475 | 138 | 71% |
-| Architecture: microservices vs monolith | 866 | 373 | 57% |
-| Review PR for security issues | 957 | 226 | 76% |
-| Docker multi-stage build | 2396 | 346 | 86% |
-| Debug PostgreSQL race condition | 1409 | 107 | 92% |
-| Implement React error boundary | 4096 | 597 | 85% |
-| **Average** | **1533** | **271** | **79%** |
+| Task | Normal (tokens) | Laconic (tokens) | Saved | vs Caveman |
+|------|---------------:|----------------:|------:|-----------:|
+| Explain React re-render bug | 901 | 102 | 89% | +2pp |
+| Fix auth middleware token expiry | 1125 | 85 | 92% | +9pp |
+| Set up PostgreSQL connection pool | 2207 | 346 | 84% | 0pp |
+| Explain git rebase vs merge | 899 | 389 | 57% | −1pp |
+| Refactor callback to async/await | 475 | 138 | 71% | +49pp |
+| Architecture: microservices vs monolith | 866 | 373 | 57% | +27pp |
+| Review PR for security issues | 957 | 226 | 76% | +35pp |
+| Docker multi-stage build | 2396 | 346 | 86% | +14pp |
+| Debug PostgreSQL race condition | 1409 | 107 | 92% | +11pp |
+| Implement React error boundary | 4096 | 597 | 85% | −2pp |
+| **Average** | **1533** | **271** | **79%** | **+14pp** |
 
-*Range: 57%–92% savings across prompts.*
+*Range: 57%–92% savings across prompts. [Caveman benchmarks](https://github.com/JuliusBrussee/caveman#benchmarks) averaged 65%.*
 <!-- BENCHMARK-TABLE-END -->
 
 <details>
@@ -170,7 +170,7 @@ Stop with: "stop laconic" or "normal mode"
 | Articles | Always dropped | Dropped unless ambiguous |
 | Word choice | Shortest word | Simplest common word |
 | Explanation | Still explains | Trusts context, skips what reader knows |
-| Token savings | ~75% | ~75% |
+| Token savings | ~65% | ~79% |
 
 Same compression, different voice. Caveman: grammar deleted. Laconic: verbosity offensive.
 

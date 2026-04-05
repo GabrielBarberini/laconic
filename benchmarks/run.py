@@ -237,23 +237,58 @@ PROMPT_LABELS = {
     "error-boundary": "Implement React error boundary",
 }
 
+# Caveman benchmark savings (%) from github.com/JuliusBrussee/caveman README.
+# Same 10 prompts, used to compute the "vs Caveman" delta column.
+CAVEMAN_SAVINGS = {
+    "react-rerender": 87,
+    "auth-middleware-fix": 83,
+    "postgres-pool": 84,
+    "git-rebase-merge": 58,
+    "async-refactor": 22,
+    "microservices-monolith": 30,
+    "pr-security-review": 41,
+    "docker-multi-stage": 72,
+    "race-condition-debug": 81,
+    "error-boundary": 87,
+}
+
+
+def _fmt_delta(delta):
+    """Format a percentage-point delta as '+Npp', '0pp', or '−Npp'."""
+    if delta > 0:
+        return f"+{delta}pp"
+    elif delta < 0:
+        return f"\u2212{abs(delta)}pp"
+    return "0pp"
+
 
 def format_table(rows, summary):
     lines = [
-        "| Task | Normal (tokens) | Laconic (tokens) | Saved |",
-        "|------|---------------:|----------------:|------:|",
+        "| Task | Normal (tokens) | Laconic (tokens) | Saved | vs Caveman |",
+        "|------|---------------:|----------------:|------:|-----------:|",
     ]
+    deltas = []
     for r in rows:
         label = PROMPT_LABELS.get(r["id"], r["id"])
+        caveman_pct = CAVEMAN_SAVINGS.get(r["id"])
+        if caveman_pct is not None:
+            delta = r["savings_pct"] - caveman_pct
+            deltas.append(delta)
+            delta_str = _fmt_delta(delta)
+        else:
+            delta_str = "n/a"
         lines.append(
-            f"| {label} | {r['normal_median']} | {r['laconic_median']} | {r['savings_pct']}% |"
+            f"| {label} | {r['normal_median']} | {r['laconic_median']} | {r['savings_pct']}% | {delta_str} |"
         )
+
+    avg_delta = round(statistics.mean(deltas)) if deltas else 0
     lines.append(
-        f"| **Average** | **{summary['avg_normal']}** | **{summary['avg_laconic']}** | **{summary['avg_savings']}%** |"
+        f"| **Average** | **{summary['avg_normal']}** | **{summary['avg_laconic']}** | **{summary['avg_savings']}%** | **{_fmt_delta(avg_delta)}** |"
     )
     lines.append("")
+    caveman_avg = round(statistics.mean(CAVEMAN_SAVINGS.values()))
     lines.append(
-        f"*Range: {summary['min_savings']}%\u2013{summary['max_savings']}% savings across prompts.*"
+        f"*Range: {summary['min_savings']}%\u2013{summary['max_savings']}% savings across prompts. [Caveman benchmarks](https://github.com/JuliusBrussee/caveman#benchmarks) averaged {caveman_avg}%.*"
     )
     return "\n".join(lines)
 
