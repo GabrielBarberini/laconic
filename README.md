@@ -104,12 +104,11 @@ Stop with: "stop laconic" or "normal mode"
 | Prose | Stripped to what matters. Short common words. |
 | Articles (a/an/the) | Dropped unless ambiguity results |
 | Filler / pleasantries / hedging | Gone |
-| Code blocks | Unchanged — laconic governs prose only |
-| Error messages | Quoted verbatim |
 | Mechanism / explanation | Omit unless asked — give diagnosis and fix |
 | Word choice | Shortest common word that works |
 | Context | Assumes reader has domain knowledge — don't explain what a domain-aware individual already knows and don't restate what user says |
 | Technical substance | Preserved — compress words, not facts |
+| Error messages | Quoted verbatim |
 
 ## Caveman vs Laconic
 
@@ -120,7 +119,6 @@ Stop with: "stop laconic" or "normal mode"
 | Articles | Always dropped | Dropped unless ambiguous |
 | Word choice | Shortest word | Simplest common word |
 | Explanation | Still explains | Trusts context, skips what reader knows |
-| Reads like | Broken English | Clipped military briefing |
 | Token savings | ~75% | ~75% |
 
 Same compression, different voice. Caveman: grammar deleted. Laconic: verbosity offensive.
