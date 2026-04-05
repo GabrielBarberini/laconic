@@ -21,7 +21,3 @@ If savings go up or stay equal with better quality, it's a valuable change.
 - Keep all 3 SKILL.md copies in sync (`skills/laconic/`, `laconic/`, `plugins/laconic/skills/laconic/`)
 - Small focused edits over rewrites
 - No templates needed — benchmark numbers speak for themselves
-
-## Ideas
-
-See [issues labeled `good first issue`](../../issues?q=label%3A%22good+first+issue%22) for starter tasks.
