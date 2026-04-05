@@ -9,6 +9,13 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/GabrielBarberini/laconic/stargazers"><img src="https://img.shields.io/github/stars/GabrielBarberini/laconic?style=flat&color=yellow" alt="Stars"></a>
+  <a href="https://github.com/GabrielBarberini/laconic/commits/main"><img src="https://img.shields.io/github/last-commit/GabrielBarberini/laconic?style=flat" alt="Last Commit"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/GabrielBarberini/laconic?style=flat" alt="License"></a>
+  <a href="https://gabrielbarberini.github.io/laconic/"><img src="https://img.shields.io/badge/web-gabrielbarberini.github.io%2Flaconic-blue?style=flat" alt="Website"></a>
+</p>
+
+<p align="center">
   <a href="#install">Install</a> &bull;
   <a href="#benchmarks">Benchmarks</a> &bull;
   <a href="#examples">Examples</a> &bull;
