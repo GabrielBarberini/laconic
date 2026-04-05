@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>laconic</title>
+  <meta name="description" content="Claude Code skill. 79% fewer tokens. Say less." />
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --fg: #e0e0e0;
+      --muted: #777;
+      --accent: #c9a84c;
+      --code-bg: #141420;
+      --border: #222;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 6rem 1.5rem 4rem;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .hero img { width: 80px; margin-bottom: 1.5rem; }
+    .hero h1 {
+      font-size: 2.4rem;
+      font-weight: 300;
+      letter-spacing: 0.3em;
+      text-transform: lowercase;
+      color: var(--fg);
+    }
+    .hero .quote {
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-style: italic;
+      line-height: 1.8;
+    }
+    .hero .quote strong {
+      color: var(--accent);
+      font-style: normal;
+    }
+
+    .stat-row {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+    .stat {
+      text-align: center;
+    }
+    .stat .num {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .stat .label {
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-top: 0.3rem;
+    }
+
+    .install {
+      text-align: center;
+      margin-top: 3rem;
+    }
+    .install code {
+      background: var(--code-bg);
+      border: 1px solid var(--border);
+      padding: 0.6rem 1.2rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: var(--accent);
+      cursor: pointer;
+      display: inline-block;
+      transition: border-color 0.2s;
+    }
+    .install code:hover { border-color: var(--accent); }
+    .install .hint {
+      font-size: 0.65rem;
+      color: var(--muted);
+      margin-top: 0.5rem;
+    }
+
+    section {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+    }
+    section h2 {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1rem;
+    }
+    @media (max-width: 600px) {
+      .comparison { grid-template-columns: 1fr; }
+    }
+    .comparison .col h3 {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--muted);
+      margin-bottom: 0.75rem;
+    }
+    .comparison .col h3 span {
+      color: var(--accent);
+    }
+    .comparison .col blockquote {
+      font-size: 0.8rem;
+      color: var(--fg);
+      border-left: 2px solid var(--border);
+      padding-left: 0.75rem;
+      line-height: 1.7;
+    }
+    .comparison .col.laconic blockquote {
+      border-left-color: var(--accent);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.75rem;
+    }
+    th {
+      text-align: left;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    td {
+      padding: 0.4rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    td:not(:first-child), th:not(:first-child) {
+      text-align: right;
+    }
+    .positive { color: var(--accent); }
+    .avg td { font-weight: 700; }
+
+    .diff {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      font-size: 0.75rem;
+    }
+    @media (max-width: 600px) {
+      .diff { grid-template-columns: 1fr; }
+    }
+    .diff h3 {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+    .diff ul {
+      list-style: none;
+      line-height: 2;
+    }
+    .diff li::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      margin-right: 0.5rem;
+      vertical-align: middle;
+    }
+    .diff .caveman li::before { background: var(--muted); }
+    .diff .laconic li::before { background: var(--accent); }
+
+    footer {
+      text-align: center;
+      padding: 3rem 1.5rem;
+      font-size: 0.65rem;
+      color: var(--muted);
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
+    <img src="https://raw.githubusercontent.com/GabrielBarberini/laconic/main/laconic.png" alt="laconic" />
+    <h1>laconic</h1>
+    <div class="quote">
+      Philip II: "If I bring my army into your land, I will destroy your farms, slay your people, and raze your city."<br/>
+      Sparta: <strong>"If."</strong>
+    </div>
+    <div class="stat-row">
+      <div class="stat"><div class="num">79%</div><div class="label">tokens saved</div></div>
+      <div class="stat"><div class="num">+14pp</div><div class="label">vs caveman</div></div>
+      <div class="stat"><div class="num">0</div><div class="label">facts lost</div></div>
+    </div>
+    <div class="install">
+      <code onclick="navigator.clipboard.writeText('npx skills add GabrielBarberini/laconic')">npx skills add GabrielBarberini/laconic</code>
+      <div class="hint">click to copy</div>
+    </div>
+  </div>
+
+  <section>
+    <h2>Before / After</h2>
+    <div class="comparison">
+      <div class="col">
+        <h3>Normal <span>69 tok</span></h3>
+        <blockquote>"The reason your React component is re-rendering is likely because you're creating a new object reference on each render cycle. When you pass an inline object as a prop, React's shallow comparison sees it as a different object every time, which triggers a re-render. I'd recommend using useMemo to memoize the object."</blockquote>
+      </div>
+      <div class="col">
+        <h3>Caveman <span>19 tok</span></h3>
+        <blockquote>"New object ref each render. Inline object prop = new ref = re-render. Wrap in <code>useMemo</code>."</blockquote>
+      </div>
+      <div class="col laconic">
+        <h3>Laconic <span>10 tok</span></h3>
+        <blockquote>"Inline object prop creates new reference. Wrap in <code>useMemo</code>."</blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Benchmarks</h2>
+    <table>
+      <tr><th>Task</th><th>Normal</th><th>Laconic</th><th>Saved</th><th>vs Caveman</th></tr>
+      <tr><td>React re-render bug</td><td>901</td><td>102</td><td>89%</td><td class="positive">+2pp</td></tr>
+      <tr><td>Auth middleware fix</td><td>1125</td><td>85</td><td>92%</td><td class="positive">+9pp</td></tr>
+      <tr><td>PostgreSQL pool setup</td><td>2207</td><td>346</td><td>84%</td><td>0pp</td></tr>
+      <tr><td>Git rebase vs merge</td><td>899</td><td>389</td><td>57%</td><td>&minus;1pp</td></tr>
+      <tr><td>Callback to async/await</td><td>475</td><td>138</td><td>71%</td><td class="positive">+49pp</td></tr>
+      <tr><td>Microservices vs monolith</td><td>866</td><td>373</td><td>57%</td><td class="positive">+27pp</td></tr>
+      <tr><td>PR security review</td><td>957</td><td>226</td><td>76%</td><td class="positive">+35pp</td></tr>
+      <tr><td>Docker multi-stage</td><td>2396</td><td>346</td><td>86%</td><td class="positive">+14pp</td></tr>
+      <tr><td>PostgreSQL race condition</td><td>1409</td><td>107</td><td>92%</td><td class="positive">+11pp</td></tr>
+      <tr><td>React error boundary</td><td>4096</td><td>597</td><td>85%</td><td>&minus;2pp</td></tr>
+      <tr class="avg"><td>Average</td><td>1533</td><td>271</td><td>79%</td><td class="positive">+14pp</td></tr>
+    </table>
+    <p style="font-size:0.65rem; color:var(--muted); margin-top:0.75rem;">
+      Claude Sonnet 4 via Langdock. Median of 3 trials. Same 10 prompts as caveman benchmark.
+    </p>
+  </section>
+
+  <section>
+    <h2>Caveman vs Laconic</h2>
+    <div class="diff">
+      <div class="caveman">
+        <h3>Caveman</h3>
+        <ul>
+          <li>Grammar broken</li>
+          <li>Still explains mechanism</li>
+          <li>Articles always dropped</li>
+          <li>Shortest word wins</li>
+          <li>~65% savings</li>
+        </ul>
+      </div>
+      <div class="laconic">
+        <h3>Laconic</h3>
+        <ul>
+          <li>Grammar minimal but clean</li>
+          <li>Trusts context, skips known</li>
+          <li>Articles dropped unless ambiguous</li>
+          <li>Simplest common word</li>
+          <li>~79% savings</li>
+        </ul>
+      </div>
+    </div>
+    <p style="font-size:0.75rem; color:var(--fg); margin-top:1.5rem;">
+      Same compression, different voice. Caveman deletes grammar. Laconic finds verbosity offensive.
+    </p>
+  </section>
+
+  <footer>
+    <a href="https://github.com/GabrielBarberini/laconic">GitHub</a> &middot; MIT &middot; Inspired by <a href="https://github.com/JuliusBrussee/caveman">caveman</a>
+  </footer>
+
+</body>
+</html>
