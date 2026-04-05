@@ -186,7 +186,7 @@ Same compression, different voice. Caveman: grammar deleted. Laconic: verbosity 
 
 ## Why
 
-- **Save money** — ~75% fewer output tokens
+- **Save money** — ~79% fewer output tokens
 - **Faster** — fewer tokens to generate
 - **Trusts the reader** — skips what devs already know
 - **Preserves facts** — compresses words, not substance
