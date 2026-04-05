@@ -10,6 +10,7 @@
 
 <p align="center">
   <a href="#install">Install</a> &bull;
+  <a href="#benchmarks">Benchmarks</a> &bull;
   <a href="#examples">Examples</a> &bull;
   <a href="#caveman-vs-laconic">Caveman vs Laconic</a> &bull;
   <a href="#why">Why</a>
@@ -23,27 +24,71 @@ Inspired by [caveman](https://github.com/JuliusBrussee/caveman). Same compressio
 
 Say the minimum. Trust context. Every word earns its place.
 
+## Benchmarks
+
+Real token counts from Claude Sonnet 4 via Langdock API. Each prompt sent with a generic system prompt ("You are a helpful assistant") vs the full laconic SKILL.md. Median of 3 trials per mode.
+
+<!-- BENCHMARK-TABLE-START -->
+| Task | Normal (tokens) | Laconic (tokens) | Saved |
+|------|---------------:|----------------:|------:|
+| Explain React re-render bug | 901 | 102 | 89% |
+| Fix auth middleware token expiry | 1125 | 85 | 92% |
+| Set up PostgreSQL connection pool | 2207 | 346 | 84% |
+| Explain git rebase vs merge | 899 | 389 | 57% |
+| Refactor callback to async/await | 475 | 138 | 71% |
+| Architecture: microservices vs monolith | 866 | 373 | 57% |
+| Review PR for security issues | 957 | 226 | 76% |
+| Docker multi-stage build | 2396 | 346 | 86% |
+| Debug PostgreSQL race condition | 1409 | 107 | 92% |
+| Implement React error boundary | 4096 | 597 | 85% |
+| **Average** | **1533** | **271** | **79%** |
+
+*Range: 57%–92% savings across prompts.*
+<!-- BENCHMARK-TABLE-END -->
+
+<details>
+<summary>Run benchmarks yourself</summary>
+
+```bash
+cd benchmarks
+pip install -r requirements.txt
+
+# Add your Langdock API key to .env.local at the repo root
+echo "LANGDOCK_API_KEY=sk-your-key" > ../.env.local
+
+# Dry run (no API calls)
+python run.py --dry-run
+
+# Full run (60 API calls: 10 prompts x 2 modes x 3 trials)
+python run.py
+
+# Auto-update README table
+python run.py --update-readme
+```
+
+</details>
+
 ## Examples
 
 <table>
 <tr>
 <td width="33%">
 
-### 🗣️ Normal (69 tokens)
+### Normal (69 tokens)
 
 > "The reason your React component is re-rendering is likely because you're creating a new object reference on each render cycle. When you pass an inline object as a prop, React's shallow comparison sees it as a different object every time, which triggers a re-render. I'd recommend using useMemo to memoize the object."
 
 </td>
 <td width="33%">
 
-### 🪨 Caveman (19 tokens)
+### Caveman (19 tokens)
 
 > "New object ref each render. Inline object prop = new ref = re-render. Wrap in `useMemo`."
 
 </td>
 <td width="33%">
 
-### Λ Laconic (10 tokens)
+### Laconic (10 tokens)
 
 > "Inline object prop creates new reference. Wrap in `useMemo`."
 
@@ -52,21 +97,21 @@ Say the minimum. Trust context. Every word earns its place.
 <tr>
 <td>
 
-### 🗣️ Normal
+### Normal
 
 > "Sure! I'd be happy to help you with that. The issue you're experiencing is most likely caused by your authentication middleware not properly validating the token expiry. Let me take a look and suggest a fix."
 
 </td>
 <td>
 
-### 🪨 Caveman
+### Caveman
 
 > "Bug in auth middleware. Token expiry check use `<` not `<=`. Fix:"
 
 </td>
 <td>
 
-### Λ Laconic
+### Laconic
 
 > "Auth middleware expiry check requires `<`. Fix:"
 
@@ -76,16 +121,22 @@ Say the minimum. Trust context. Every word earns its place.
 
 ## Install
 
+### Claude Code (skill)
+
 ```bash
 npx skills add GabrielBarberini/laconic
 ```
 
-Or with Claude Code plugin system:
+### Claude Code (plugin)
 
 ```bash
 claude plugin marketplace add GabrielBarberini/laconic
 claude plugin install laconic@laconic
 ```
+
+### Codex
+
+Install from the `.agents/plugins/marketplace.json` registry or copy the `plugins/laconic/` directory into your Codex plugins folder.
 
 ## Usage
 
