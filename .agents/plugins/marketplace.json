@@ -1,0 +1,20 @@
+{
+  "name": "laconic-repo",
+  "interface": {
+    "displayName": "Laconic Repo"
+  },
+  "plugins": [
+    {
+      "name": "laconic",
+      "source": {
+        "source": "local",
+        "path": "./plugins/laconic"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
