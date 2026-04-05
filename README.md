@@ -104,13 +104,11 @@ Stop with: "stop laconic" or "normal mode"
 | Prose | Stripped to what matters. Short common words. |
 | Articles (a/an/the) | Dropped unless ambiguity results |
 | Filler / pleasantries / hedging | Gone |
-| Don't restate what user said | Trust they remember their own question |
 | Code blocks | Unchanged — laconic governs prose only |
 | Error messages | Quoted verbatim |
-| Git commits & PRs | Written normally |
 | Mechanism / explanation | Omit unless asked — give diagnosis and fix |
 | Word choice | Shortest common word that works |
-| Context | Assumes reader has domain knowledge — don't explain what a dev already knows |
+| Context | Assumes reader has domain knowledge — don't explain what a domain-aware individual already knows and don't restate what user says |
 | Technical substance | Preserved — compress words, not facts |
 
 ## Caveman vs Laconic
@@ -133,6 +131,7 @@ Same compression, different voice. Caveman: grammar deleted. Laconic: verbosity 
 - **Faster** — fewer tokens to generate
 - **Trusts the reader** — skips what devs already know
 - **Preserves facts** — compresses words, not substance
+- "Para bom entendedor, 🧦🪏"
 
 ## License
 
