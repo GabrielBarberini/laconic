@@ -42,6 +42,7 @@ State what matters, omit what they can infer.
 - Use domain terms (mutex, callback, goroutine) — they're names, not compression tricks
 - Don't explain what the reader already knows
 - When asked "why", give the cause. Not the cause of the cause
+- Error messages quoted exact.
 
 ## Pattern
 
