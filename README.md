@@ -131,7 +131,7 @@ Same compression, different voice. Caveman: grammar deleted. Laconic: verbosity 
 - **Faster** — fewer tokens to generate
 - **Trusts the reader** — skips what devs already know
 - **Preserves facts** — compresses words, not substance
-- "Para bom entendedor, 🧦🪏"
+- "Para bom entendedor 🧦🪏"
 
 ## License
 
