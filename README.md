@@ -192,6 +192,12 @@ Same compression, different voice. Caveman: grammar deleted. Laconic: verbosity 
 - **Preserves facts** — compresses words, not substance
 - "Para bom entendedor 🧦🪏"
 
+## Star
+
+Useful? One star suffices. ⭐
+
+[![Star History Chart](https://api.star-history.com/svg?repos=GabrielBarberini/laconic&type=Date)](https://star-history.com/#GabrielBarberini/laconic&Date)
+
 ## License
 
-MIT
+MIT — few words, no restrictions. Sparta would approve.
