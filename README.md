@@ -31,20 +31,23 @@ Real token counts from Claude Sonnet 4 via Langdock API. Each prompt sent with a
 <!-- BENCHMARK-TABLE-START -->
 | Task | Normal (tokens) | Laconic (tokens) | Saved | vs Caveman |
 |------|---------------:|----------------:|------:|-----------:|
-| Explain React re-render bug | 901 | 102 | 89% | +2pp |
-| Fix auth middleware token expiry | 1125 | 85 | 92% | +9pp |
-| Set up PostgreSQL connection pool | 2207 | 346 | 84% | 0pp |
-| Explain git rebase vs merge | 899 | 389 | 57% | −1pp |
-| Refactor callback to async/await | 475 | 138 | 71% | +49pp |
-| Architecture: microservices vs monolith | 866 | 373 | 57% | +27pp |
-| Review PR for security issues | 957 | 226 | 76% | +35pp |
-| Docker multi-stage build | 2396 | 346 | 86% | +14pp |
-| Debug PostgreSQL race condition | 1409 | 107 | 92% | +11pp |
-| Implement React error boundary | 4096 | 597 | 85% | −2pp |
-| **Average** | **1533** | **271** | **79%** | **+14pp** |
+| Explain React re-render bug | 941 | 106 | 89% | +2pp |
+| Fix auth middleware token expiry | 1100 | 83 | 92% | +9pp |
+| Set up PostgreSQL connection pool | 2104 | 361 | 83% | −1pp |
+| Explain git rebase vs merge | 1004 | 347 | 65% | +7pp |
+| Refactor callback to async/await | 461 | 141 | 69% | +47pp |
+| Architecture: microservices vs monolith | 889 | 356 | 60% | +30pp |
+| Review PR for security issues | 758 | 244 | 68% | +27pp |
+| Docker multi-stage build | 2583 | 379 | 85% | +13pp |
+| Debug PostgreSQL race condition | 1339 | 197 | 85% | +4pp |
+| Implement React error boundary | 4096 | 658 | 84% | −3pp |
+| **Average** | **1528** | **287** | **78%** | **+14pp** |
 
-*Range: 57%–92% savings across prompts. [Caveman benchmarks](https://github.com/JuliusBrussee/caveman#benchmarks) averaged 65%.*
+*Range: 60%–92% savings across prompts. [Caveman benchmarks](https://github.com/JuliusBrussee/caveman#benchmarks) averaged 64%.*
 <!-- BENCHMARK-TABLE-END -->
+
+> [!IMPORTANT]
+> Laconic only affects **output tokens** — thinking/reasoning tokens are untouched. Compression targets prose, not cognition. Biggest win is **readability and speed**; cost savings are a bonus.
 
 <details>
 <summary>Run benchmarks yourself</summary>
