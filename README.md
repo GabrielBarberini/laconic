@@ -1,5 +1,5 @@
 <p align="center">
-  <b>𐃉</b>
+  <img src="https://raw.githubusercontent.com/GabrielBarberini/laconic/main/laconic.png" width="120" />
 </p>
 
 <h1 align="center">laconic</h1>
@@ -17,11 +17,11 @@
 
 ---
 
-A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skill for brutally brief communication — cutting **~75% of tokens** using short common words and implication.
+A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skill that cuts **~75% of tokens** — short words, trusted context, implication over explanation.
 
-Inspired by [caveman](https://github.com/JuliusBrussee/caveman). Both compress. Different style.
+Inspired by [caveman](https://github.com/JuliusBrussee/caveman). Same compression, different style.
 
-Historical laconicism: say the minimum, trust context, let every word carry its weight.
+Say the minimum. Trust context. Every word earns its place.
 
 ## Examples
 
@@ -43,7 +43,7 @@ Historical laconicism: say the minimum, trust context, let every word carry its 
 </td>
 <td width="33%">
 
-### 𐃉 Laconic (10 tokens)
+### Λ Laconic (10 tokens)
 
 > "Inline object prop creates new reference. Wrap in `useMemo`."
 
@@ -66,7 +66,7 @@ Historical laconicism: say the minimum, trust context, let every word carry its 
 </td>
 <td>
 
-### 𐃉 Laconic
+### Λ Laconic
 
 > "Auth middleware expiry check requires `<`. Fix:"
 
@@ -125,14 +125,14 @@ Stop with: "stop laconic" or "normal mode"
 | Reads like | Broken English | Clipped military briefing |
 | Token savings | ~75% | ~75% |
 
-Same compression ratio, different style. Caveman sounds like grammar got deleted. Laconic sounds like someone who finds verbosity offensive.
+Same compression, different voice. Caveman: grammar deleted. Laconic: verbosity offensive.
 
 ## Why
 
 - **Save money** — ~75% fewer output tokens
 - **Faster** — fewer tokens to generate
-- **Trusts the reader** — doesn't over-explain what devs already know
-- **Preserves facts** — compresses words, not technical substance
+- **Trusts the reader** — skips what devs already know
+- **Preserves facts** — compresses words, not substance
 
 ## License
 
