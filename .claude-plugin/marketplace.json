@@ -1,0 +1,17 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "laconic",
+  "description": "Brutally brief communication for Claude Code. Short common words, trust context, say less. Like a Spartan who finds verbosity offensive.",
+  "owner": {
+    "name": "Gabriel Barberini",
+    "url": "https://github.com/GabrielBarberini"
+  },
+  "plugins": [
+    {
+      "name": "laconic",
+      "description": "Say less. Trust context. Short common words. ~75% fewer tokens.",
+      "source": "./",
+      "category": "productivity"
+    }
+  ]
+}
