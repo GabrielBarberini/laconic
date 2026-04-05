@@ -17,7 +17,7 @@
 
 ---
 
-A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skill for brutally brief communication — cutting **~75% of tokens** using short common words, auto-imposed context, and implication.
+A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skill for brutally brief communication — cutting **~75% of tokens** using short common words and implication.
 
 Inspired by [caveman](https://github.com/JuliusBrussee/caveman). Both compress. Different style.
 
