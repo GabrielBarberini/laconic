@@ -200,4 +200,4 @@ Useful? One star suffices. ⭐
 
 ## License
 
-MIT — few words, no restrictions. Sparta would approve.
+MIT — Sparta needed no walls. Neither does this license.
