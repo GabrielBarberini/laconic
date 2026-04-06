@@ -163,8 +163,6 @@ claude plugin install laconic@laconic
 
 Or copy the `plugins/laconic/` directory into your Codex plugins folder.
 
-Install once. Works in all sessions after that.
-
 ## Usage
 
 Trigger with:
@@ -175,30 +173,14 @@ Trigger with:
 
 Stop with: "stop laconic" or "normal mode"
 
-## What Laconic Does
-
-| Category | Rule |
-|----------|------|
-| Prose | Stripped to what matters. Short common words. |
-| Articles (a/an/the) | Dropped unless ambiguity results |
-| Filler / pleasantries / hedging | Gone |
-| Mechanism / explanation | Omit unless asked — give diagnosis and fix |
-| Word choice | Shortest common word that works |
-| Context | Assumes reader has domain knowledge — don't explain what a domain-aware individual already knows and don't restate what user says |
-| Technical substance | Preserved — compress words, not facts |
-| Error messages | Quoted verbatim |
-| Code | Just enough
-
 ## Caveman vs Laconic
 
 | | Caveman | Laconic |
 |--|---------|---------|
-| Tone | Primitive | Terse, Concealed wisdom |
+| Tone | Primitive | Terse |
 | Explanation | Normal | Trusts context, skips what reader knows |
 | Code | Normal | Just enough code |
 | Token savings | ~65% | ~80% |
-
-Laconic speech is not just brevity — it is the weaponization of implication
 
 ## Why
 
@@ -206,13 +188,6 @@ Laconic speech is not just brevity — it is the weaponization of implication
 - **Faster** — fewer tokens to generate
 - **Trusts the reader** — skips what is already known
 - **Preserves facts** — compresses words, not substance
-- "Para bom entendedor 🧦🪏"
-
-## Star
-
-Useful? One star suffices. ⭐
-
-[![Star History Chart](https://api.star-history.com/svg?repos=GabrielBarberini/laconic&type=Date)](https://star-history.com/#GabrielBarberini/laconic&Date)
 
 ## License
 
