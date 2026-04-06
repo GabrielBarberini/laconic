@@ -29,7 +29,7 @@ A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skill that cuts 
 
 Inspired by [caveman](https://github.com/JuliusBrussee/caveman). Same compression, different style.
 
-Say the minimum. Trust context. Every word earns its place.
+Say the minimum. Trust context. Every word earns its place. 1000 tokens? 300 will do
 
 ## Benchmarks
 
