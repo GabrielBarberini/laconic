@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>laconic</title>
-  <meta name="description" content="Claude Code skill. 90% fewer tokens. Say less." />
+  <meta name="description" content="Claude Code skill. 90% fewer tokens." />
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <style>
     :root {
@@ -352,7 +352,7 @@
       </div>
       <div class="stat-row">
         <div class="stat"><div class="num">90%</div><div class="label">tokens saved</div></div>
-        <div class="stat"><div class="num">+15pp</div><div class="label">vs caveman</div></div>
+        <div class="stat"><div class="num">+25pp</div><div class="label">vs caveman</div></div>
         <div class="stat"><div class="num">0</div><div class="label">facts lost</div></div>
       </div>
       <div class="install">
@@ -363,18 +363,21 @@
 
     <section>
       <h2>Before / After</h2>
+      <p style="font-size:0.75rem; color:var(--muted); margin-bottom:1.5rem; font-style:italic;">
+        "My Express auth middleware is letting expired JWT tokens through. The expiry check uses <code>Date.now()</code> compared to the token's <code>exp</code> field. What's wrong and how do I fix it?"
+      </p>
       <div class="comparison">
         <div class="col">
-          <h3>Normal <span>69 tok</span></h3>
-          <blockquote>"The reason your React component is re-rendering is likely because you're creating a new object reference on each render cycle. When you pass an inline object as a prop, React's shallow comparison sees it as a different object every time, which triggers a re-render. I'd recommend using useMemo to memoize the object."</blockquote>
+          <h3>Normal <span>~1,300 tok</span></h3>
+          <blockquote>Explains JWT spec, Unix timestamps vs JavaScript milliseconds, walks through middleware architecture, adds error handling, suggests libraries, and outputs a full refactored file&nbsp;(&hellip;)</blockquote>
         </div>
         <div class="col">
-          <h3>Caveman <span>19 tok</span></h3>
-          <blockquote>"New object ref each render. Inline object prop = new ref = re-render. Wrap in <code>useMemo</code>."</blockquote>
+          <h3>Caveman <span>~39 tok</span></h3>
+          <blockquote>"<code>exp</code> seconds. <code>Date.now()</code> milliseconds. Divide by 1000. Compare. Done."</blockquote>
         </div>
         <div class="col laconic">
-          <h3>Laconic <span>10 tok</span></h3>
-          <blockquote>"Inline object prop creates new reference. Wrap in <code>useMemo</code>."</blockquote>
+          <h3>Laconic <span>19 tok</span></h3>
+          <blockquote>"<code>exp</code> is in seconds. <code>Date.now()</code> is milliseconds.<br/><code>if (Date.now() / 1000 > payload.exp)</code>"</blockquote>
         </div>
       </div>
     </section>
@@ -383,20 +386,20 @@
       <h2>Caveman Benchmark</h2>
       <table>
         <tr><th>Task</th><th>Normal</th><th>Laconic</th><th>Saved</th><th>vs Caveman</th></tr>
-        <tr><td>React re-render bug</td><td>940</td><td>100</td><td>89%</td><td class="positive">+2pp</td></tr>
-        <tr><td>Auth middleware fix</td><td>1292</td><td>58</td><td>96%</td><td class="positive">+13pp</td></tr>
-        <tr><td>PostgreSQL pool setup</td><td>2038</td><td>384</td><td>81%</td><td>&minus;3pp</td></tr>
-        <tr><td>Git rebase vs merge</td><td>987</td><td>399</td><td>60%</td><td class="positive">+2pp</td></tr>
-        <tr><td>Callback to async/await</td><td>454</td><td>195</td><td>57%</td><td class="positive">+35pp</td></tr>
-        <tr><td>Microservices vs monolith</td><td>956</td><td>334</td><td>65%</td><td class="positive">+35pp</td></tr>
-        <tr><td>PR security review</td><td>971</td><td>223</td><td>77%</td><td class="positive">+36pp</td></tr>
-        <tr><td>Docker multi-stage</td><td>2627</td><td>186</td><td>93%</td><td class="positive">+21pp</td></tr>
-        <tr><td>PostgreSQL race condition</td><td>1398</td><td>94</td><td>93%</td><td class="positive">+12pp</td></tr>
-        <tr><td>React error boundary</td><td>4096</td><td>579</td><td>86%</td><td>&minus;1pp</td></tr>
-        <tr class="avg"><td>Average</td><td>1576</td><td>255</td><td>90%</td><td class="positive">+15pp</td></tr>
+        <tr><td>React re-render bug</td><td>885</td><td>68</td><td>92%</td><td class="positive">+5pp</td></tr>
+        <tr><td>Auth middleware fix</td><td>1059</td><td>39</td><td>96%</td><td class="positive">+13pp</td></tr>
+        <tr><td>PostgreSQL pool setup</td><td>2167</td><td>189</td><td>91%</td><td class="positive">+7pp</td></tr>
+        <tr><td>Git rebase vs merge</td><td>996</td><td>95</td><td>90%</td><td class="positive">+32pp</td></tr>
+        <tr><td>Callback to async/await</td><td>494</td><td>62</td><td>87%</td><td class="positive">+65pp</td></tr>
+        <tr><td>Microservices vs monolith</td><td>826</td><td>209</td><td>75%</td><td class="positive">+45pp</td></tr>
+        <tr><td>PR security review</td><td>940</td><td>126</td><td>87%</td><td class="positive">+46pp</td></tr>
+        <tr><td>Docker multi-stage</td><td>2635</td><td>149</td><td>94%</td><td class="positive">+22pp</td></tr>
+        <tr><td>PostgreSQL race condition</td><td>1370</td><td>49</td><td>96%</td><td class="positive">+15pp</td></tr>
+        <tr><td>React error boundary</td><td>4096</td><td>400</td><td>90%</td><td class="positive">+3pp</td></tr>
+        <tr class="avg"><td>Average</td><td>1547</td><td>139</td><td>90%</td><td class="positive">+25pp</td></tr>
       </table>
       <p style="font-size:0.65rem; color:var(--muted); margin-top:0.75rem;">
-        Claude Sonnet 4 via Langdock. Median of 3 trials. Range: 57%–96%. Same 10 prompts as Caveman benchmark (avg 64%).
+        Claude Sonnet 4 via Langdock. Median of 3 trials. Range: 75%–96%. Same 10 prompts as Caveman benchmark (avg 64%).
       </p>
       <p style="font-size:0.7rem; color:var(--fg); margin-top:1rem; border-left:2px solid var(--accent); padding-left:0.75rem;">
         Output tokens only &mdash;
