@@ -182,7 +182,7 @@ Stop with: "stop laconic" or "normal mode"
 | Explanation | Still explains | Trusts context, skips what reader knows |
 | Token savings | ~65% | ~79% |
 
-Same compression, different voice. Caveman: grammar deleted. Laconic: verbosity offensive.
+Laconic speech is not just brevity — it is the weaponization of implication
 
 ## Why
 
