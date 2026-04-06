@@ -1,0 +1,43 @@
+name: Sync SKILL.md
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - skills/laconic/SKILL.md
+
+concurrency:
+  group: sync-skill
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Pull latest before making changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin main
+
+      - name: Copy to duplicate locations
+        run: |
+          cp skills/laconic/SKILL.md laconic/SKILL.md
+          cp skills/laconic/SKILL.md plugins/laconic/skills/laconic/SKILL.md
+
+      - name: Rebuild laconic.skill ZIP
+        run: |
+          cd skills && zip -r ../laconic.skill laconic/
+
+      - name: Commit and push if changed
+        run: |
+          git diff --quiet && exit 0
+          git add laconic/SKILL.md plugins/laconic/skills/laconic/SKILL.md laconic.skill
+          git commit -m "chore: sync SKILL.md copies and laconic.skill [skip ci]"
+          git push

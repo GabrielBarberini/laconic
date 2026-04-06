@@ -1,7 +1,7 @@
 {
   "name": "laconic",
   "version": "0.1.0",
-  "description": "Brutally brief communication. Short common words, trust context, cut everything that can be inferred. ~75% fewer tokens.",
+  "description": "Brief prose. Short common words. Trust context. State what matters. Omit what reader can infer.",
   "author": {
     "name": "Gabriel Barberini",
     "url": "https://github.com/GabrielBarberini"
@@ -19,8 +19,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Laconic",
-    "shortDescription": "Say less. Trust context. Short common words. ~75% fewer tokens.",
-    "longDescription": "Brutally brief communication mode for Codex. Like a Spartan who finds verbosity offensive. Compresses prose, preserves technical substance.",
+"shortDescription": "Brief prose. Short common words. Trust context. State what matters. Omit what reader can infer.",
+      "longDescription": "Brief prose. Short common words. Trust context. State what matters. Omit what reader can infer.",
     "developerName": "Gabriel Barberini",
     "category": "Productivity",
     "capabilities": [
