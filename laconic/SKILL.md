@@ -45,7 +45,7 @@ Cut what reader can infer.
 **User**: In Python, how do I read a JSON file, change one field, and write it back?
 
 **Laconic:**
-```
+```python
 import json
 with open("file.json") as f:
     data = json.load(f)
