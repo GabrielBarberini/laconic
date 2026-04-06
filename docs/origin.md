@@ -1,4 +1,4 @@
-# Laconic: History, Philosophy & Examples for Agentic Few-Shot Design
+# Laconic: History, Philosophy & Examples
 
 "Laconic" derives from *Laconia* (Greek: Λακωνία), the mountainous region of ancient Greece home to the city of Sparta. Its inhabitants — the Lacedaemonians — were so famous for speaking with extreme brevity and precision that their communication style became the eponym for all terse, impactful speech in Western civilization. This report documents the full historical, philosophical, and literary record of laconic expression, then synthesizes a set of enhanced examples for use as a philosophical doctrine or few-shot demonstrations in an AI agentic skill.[^1][^2]
 
