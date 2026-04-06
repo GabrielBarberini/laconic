@@ -24,7 +24,7 @@
 
 ---
 
-**laconic** is a skill for AI coding agents.
+**laconic** is a 300 words skill for AI coding agents. Inspired by [caveman](https://github.com/JuliusBrussee/caveman). 
 
 It cuts filler.
 It keeps meaning.
@@ -32,7 +32,7 @@ It trusts context.
 
 Think: short, clear, cold.
 
-Inspired by [caveman](https://github.com/JuliusBrussee/caveman). 
+Every word earns its place. 
 
 ## Benchmarks
 
@@ -42,19 +42,19 @@ Claude Sonnet 4 via Langdock API. Each prompt: generic system prompt vs full lac
 <!-- BENCHMARK-TABLE-START -->
 | Task | Normal (tokens) | Laconic (tokens) | Saved | vs Caveman |
 |------|---------------:|----------------:|------:|-----------:|
-| Explain React re-render bug | 940 | 100 | 89% | +2pp |
-| Fix auth middleware token expiry | 1292 | 58 | 96% | +13pp |
-| Set up PostgreSQL connection pool | 2038 | 384 | 81% | −3pp |
-| Explain git rebase vs merge | 987 | 399 | 60% | +2pp |
-| Refactor callback to async/await | 454 | 195 | 57% | +35pp |
-| Architecture: microservices vs monolith | 956 | 334 | 65% | +35pp |
-| Review PR for security issues | 971 | 223 | 77% | +36pp |
-| Docker multi-stage build | 2627 | 186 | 93% | +21pp |
-| Debug PostgreSQL race condition | 1398 | 94 | 93% | +12pp |
-| Implement React error boundary | 4096 | 579 | 86% | −1pp |
-| **Average** | **1576** | **255** | **80%** | **+15pp** |
+| Explain React re-render bug | 885 | 68 | 92% | +5pp |
+| Fix auth middleware token expiry | 1059 | 39 | 96% | +13pp |
+| Set up PostgreSQL connection pool | 2167 | 189 | 91% | +7pp |
+| Explain git rebase vs merge | 996 | 95 | 90% | +32pp |
+| Refactor callback to async/await | 494 | 62 | 87% | +65pp |
+| Architecture: microservices vs monolith | 826 | 209 | 75% | +45pp |
+| Review PR for security issues | 940 | 126 | 87% | +46pp |
+| Docker multi-stage build | 2635 | 149 | 94% | +22pp |
+| Debug PostgreSQL race condition | 1370 | 49 | 96% | +15pp |
+| Implement React error boundary | 4096 | 400 | 90% | +3pp |
+| **Average** | **1547** | **139** | **90%** | **+25pp** |
 
-*Range: 57%–96% savings across prompts. [Caveman benchmarks](https://github.com/JuliusBrussee/caveman#benchmarks) averaged 64%.*
+*Range: 75%–96% savings across prompts. [Caveman benchmarks](https://github.com/JuliusBrussee/caveman#benchmarks) averaged 64%.*
 <!-- BENCHMARK-TABLE-END -->
 
 > [!IMPORTANT]
@@ -78,50 +78,26 @@ python run.py --update-readme
 
 ## Examples
 
+**Prompt**: *"My Express auth middleware is letting expired JWT tokens through. The expiry check uses `Date.now()` compared to the token's `exp` field. What's wrong and how do I fix it?"*
+
 <table>
 <tr>
-<td width="33%">
+<td width="50%">
 
-### 🗣️ Normal (69 tokens)
+### 🗣️ Normal (~1,300 tokens)
 
-> "The reason your React component is re-rendering is likely because you're creating a new object reference on each render cycle. When you pass an inline object as a prop, React's shallow comparison sees it as a different object every time, which triggers a re-render. I'd recommend using useMemo to memoize the object."
-
-</td>
-<td width="33%">
-
-### 🪨 Caveman (19 tokens)
-
-> "New object ref each render. Inline object prop = new ref = re-render. Wrap in `useMemo`."
+Explains JWT spec, Unix timestamps vs JavaScript milliseconds, walks through middleware architecture, adds error handling, suggests libraries, and outputs a full refactored file (...)
 
 </td>
-<td width="33%">
+<td width="50%">
 
-### Λ Laconic (10 tokens)
+### Λ Laconic (19 tokens)
 
-> "Inline object prop creates new reference. Wrap in `useMemo`."
-
-</td>
-</tr>
-<tr>
-<td>
-
-### 🗣️ Normal
-
-> "Sure! I'd be happy to help you with that. The issue you're experiencing is most likely caused by your authentication middleware not properly validating the token expiry. Let me take a look and suggest a fix."
-
-</td>
-<td>
-
-### 🪨 Caveman
-
-> "Bug in auth middleware. Token expiry check use `<` not `<=`. Fix:"
-
-</td>
-<td>
-
-### Λ Laconic
-
-> "Auth middleware expiry check requires `<`. Fix:"
+> `exp` is in seconds. `Date.now()` is milliseconds.
+>
+> ```js
+> if (Date.now() / 1000 > payload.exp) // expired
+> ```
 
 </td>
 </tr>
@@ -176,6 +152,17 @@ Trigger with:
 - `/laconic`
 - "laconic mode"
 - "be laconic"
+
+Stop with: "stop laconic" or "normal mode"
+
+## Caveman vs Laconic
+
+| | Caveman | Laconic |
+|--|---------|---------|
+| Tone | Primitive | Terse |
+| Explanation | Normal | Trusts context, skips what reader knows |
+| Code | Normal | Just enough code |
+| Token savings | ~65% | ~90% |
 
 ## License
 
