@@ -10,21 +10,21 @@ The core insight is this: **laconic speech is not just brevity — it is the wea
 
 ### The Agoge and the Discipline of Speech
 
-The Spartan educational system, the *agoge*, began training boys at age seven. Its curriculum was not simply martial — it included explicit instruction in how to speak. Youths were taught to compress their words to give maximum meaning in as few syllables as possible. A Spartan youth was reportedly liable to have his thumb bitten as punishment for a too-verbose response to a teacher's question. Loquacity was considered frivolous and unbecoming of a serious warrior.[^2][^3][^4]
+The Spartan educational system, the *agoge*, began training boys at age seven. Its curriculum was not simply martial — it included explicit instruction in how to speak. Youths were taught to compress their words to give maximum meaning in as few syllables as possible. A Spartan youth was reportedly liable to have his thumb bitten as punishment for a faulty answer — whether poor reasoning, wrong content, or excessive length. Loquacity was considered frivolous and unbecoming of a serious warrior.[^2][^3][^4]
 
 This discipline was not born from intellectual poverty. Socrates, in Plato's *Protagoras*, explicitly argued against the idea that Spartan brevity was mere bluntness: *"They conceal their wisdom, and pretend to be blockheads... if you talk to any ordinary Spartan, he seems to be stupid, but eventually, like an expert marksman, he shoots in some brief remark that proves you to be only a child."* Sparta's brand of brevity was strategic concealment — the discipline of keeping your best thoughts until the precise moment they would hit.[^2]
 
 ### Chilon of Sparta: Laconic as Philosophy
 
-The most important philosophical validation comes from Chilon of Sparta (c. 600 BC), one of the canonical Seven Sages of ancient Greece. He is credited with the Greek proverb: **"Τὸ λακωνίζειν ἐστί φιλοσοφεῖν"** — "Brevity is the soul of wisdom" or more literally, *"to speak in the Laconian way is to philosophize"*. This moves laconic speech from a cultural habit into a philosophical claim: **concision is a mode of thinking**, not merely a mode of expressing.[^5][^6]
+The most important philosophical validation comes from Chilon of Sparta (c. 630 BC), one of the canonical Seven Sages of ancient Greece. In Plato's *Protagoras* (342a–343c), Socrates attributes to the Spartan tradition the idea: **"Τὸ λακωνίζειν ἐστί φιλοσοφεῖν"** — literally *"to speak in the Laconian way is to philosophize."* This moves laconic speech from a cultural habit into a philosophical claim: **concision is a mode of thinking**, not merely a mode of expressing.[^5][^6]
 
 Chilon's surviving maxims are themselves laconic masterclasses:[^7]
 
 | Maxim | Context |
 |-------|---------|
 | *"Do not let one's tongue outrun one's sense."* | On reckless speech |
-| *"Nothing in excess."* | On temperance (also inscribed at Delphi) |
-| *"Know thyself."* | On self-awareness |
+| *"Nothing in excess."* | On temperance (inscribed at Delphi; also attributed to Solon) |
+| *"Know thyself."* | On self-awareness (more commonly linked to Chilon) |
 | *"Prefer punishment to disgraceful gain."* | On integrity |
 | *"Restrain anger."* | On emotional control |
 | *"Do not desire what is impossible."* | On realism |
@@ -37,9 +37,9 @@ These are the most historically verified laconic exchanges, drawn from Plutarch'
 
 ### Power and Defiance
 
-**The "If" Incident — Philip II of Macedon vs. Sparta (c. 346 BC)**
+**The "If" Incident — Philip II of Macedon vs. Sparta (c. 338 BC)**
 
-After Philip conquered most of Greece, he sent a message to Sparta: *"If I invade Laconia, I shall turn you out."* The Spartan ephors replied with a single word:[^2]
+After Philip's victory at Chaeronea (338 BC), he turned south toward Sparta and sent a message: *"If I invade Laconia, I shall turn you out."* The Spartan ephors replied with a single word:[^2]
 
 > **"If."**
 
@@ -116,7 +116,7 @@ This response is celebrated today as the motto of the Greek 20th Armored Divisio
 
 ### Military Dispatches
 
-**Mindarus's death message (408 BC)** — After the disaster at Cyzicus, Mindarus's first officer sent a distress signal intercepted by the Athenians and recorded by Xenophon:[^2]
+**Cyzicus dispatch (410 BC)** — After the disaster at Cyzicus, the surviving vice-admiral Hippocrates sent a distress signal intercepted by the Athenians and recorded by Xenophon (*Hellenica* 1.1.23):[^2]
 
 > **"Ships gone; Mindarus dead; the men starving; at our wits' end what to do."**
 
@@ -142,7 +142,6 @@ The tradition extended well beyond Sparta, appearing across civilizations whenev
 | Pyrrhus of Epirus (279 BC) | Offered congratulations after a costly victory | *"One more such victory and the cause is lost."*[^11] |
 | Cicero (63 BC) | Reporting the execution of conspirators | *"Vixerunt."* ("They have lived." — a formulaic euphemism for death.)[^11] |
 | Ahab, King of Israel | Reply to Ben-Hadad's threat of conquest | *"One who puts on his armor should not boast like one who takes it off."*[^11] |
-| Phocion (336 BC) | On news of Philip II's death reaching Athens | *"The army which defeated us at Chaeronea has lost just one man."*[^11] |
 | Diogenes the Cynic | Alexander the Great offered him any gift | *"Stand out of my light."*[^12] |
 | Sviatoslav I of Kiev (c. 972) | Declaration of war to enemy rulers | *"I come at you!"*[^11] |
 
@@ -158,11 +157,8 @@ The tradition extended well beyond Sparta, appearing across civilizations whenev
 
 | Speaker | Context | Expression |
 |---------|---------|------------|
-| Victor Hugo (1862) | Checking sales of *Les Misérables* while on vacation | Telegraphed: **"?"** → Publisher replied: **"!"**[^13] |
 | Oliver Hazard Perry (1813) | Victory report after Battle of Lake Erie | *"We have met the enemy and they are ours."*[^11] |
 | General McAuliffe (1944) | German ultimatum demanding surrender at Bastogne | **"NUTS!"**[^14] |
-| General Foch (WWI) | Situation report when surrounded | *"My center is giving way, my right is in retreat. Situation excellent. I attack."*[^11] |
-| General Chesty Puller (Korea) | Surrounded at Battle of Chosin Reservoir | *"We're surrounded. That simplifies things."*[^11] |
 | Calvin Coolidge | Dinner guest bet she could get more than two words | *"You lose."*[^11] |
 | Paul Dirac | Audience member said he didn't understand part of a lecture | *"That was a statement, not a question."*[^11] |
 | Wolfgang Pauli | Reviewing a young physicist's paper | *"It is not even wrong."*[^11] |
@@ -175,10 +171,10 @@ The tradition extended well beyond Sparta, appearing across civilizations whenev
 Several major philosophical traditions converge on laconic principles, each offering a distinct lens for an agentic skill.
 
 ### Stoicism: Speech as Virtue
-Marcus Aurelius and Epictetus both explicitly urged speaking *laconically* — "in the Spartan fashion". Epictetus: *"First learn the meaning of what you say, and then speak."* The Stoic argument is that unnecessary words are a symptom of insufficient thinking. Laconic speech, for Stoics, is evidence that the speaker has *already done the work*.[^15]
+Marcus Aurelius and Epictetus both valued speaking with Spartan economy. Epictetus: *"First learn the meaning of what you say, and then speak."* The Stoic tradition held that unnecessary words are a symptom of insufficient thinking. Laconic speech, for Stoics, is evidence that the speaker has *already done the work*.[^15]
 
 ### Hemingway's Iceberg Theory
-Ernest Hemingway defined what he called the "theory of omission": *"If a writer of prose knows enough of what he is writing about, he may omit things that he knows and the reader will have a feeling of those things as strongly as though the writer had stated them."* The dignity of an iceberg, he noted, *"is due to only one-eighth of it being above water."* What you leave out is exactly what makes what you include powerful.[^16][^17]
+Ernest Hemingway defined what he called the "theory of omission": *"If a writer of prose knows enough of what he is writing about, he may omit things that he knows and the reader will have a feeling of those things as strongly as though the writer had stated them."* The dignity of an iceberg, he noted, *"The dignity of movement of an ice-berg is due to only one-eighth of it being above water."* What you leave out is exactly what makes what you include powerful.[^16][^17]
 
 ### Zen Koans: Brevity that Contains Contradiction
 Zen Buddhism developed the *koan* as a short statement or question that cannot be resolved by logic. Famous examples: *"What is the sound of one hand clapping?"* or *"Stop the sound of the distant temple bell."* The brevity here is not about efficiency — it is about **forcing the mind past the limits of language**. The koan is laconic in structure but anti-laconic in resolution: it demands extended contemplation.[^18][^19]
@@ -206,7 +202,7 @@ This is the paradox at the heart of laconic communication: **brevity is more exp
 
 ## Appendix: Key Sources
 
-- **Plutarch**, *Apophthegmata Laconica* (Laconic Apophthegms), *Moralia*, 208b–242d — primary source for virtually all Spartan sayings[^8][^9]
+- **Plutarch**, *Apophthegmata Laconica* (Laconic Apophthegms), *Moralia*, 208b–236e (242d if including *Sayings of Spartan Women*) — primary source for virtually all Spartan sayings[^8][^9]
 - **Herodotus**, *Histories* — accounts of Thermopylae exchanges[^2]
 - **Xenophon**, *Hellenica* — the Mindarus dispatch[^2]
 - **Plato**, *Protagoras* — Socrates on Spartan speech[^2]
