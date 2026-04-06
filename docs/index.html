@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>laconic</title>
-  <meta name="description" content="Claude Code skill. 79% fewer tokens. Say less." />
+  <meta name="description" content="Claude Code skill. 80% fewer tokens. Say less." />
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <style>
     :root {
@@ -351,8 +351,8 @@
         Sparta: <strong>"If."</strong>
       </div>
       <div class="stat-row">
-        <div class="stat"><div class="num">79%</div><div class="label">tokens saved</div></div>
-        <div class="stat"><div class="num">+14pp</div><div class="label">vs caveman</div></div>
+        <div class="stat"><div class="num">80%</div><div class="label">tokens saved</div></div>
+        <div class="stat"><div class="num">+15pp</div><div class="label">vs caveman</div></div>
         <div class="stat"><div class="num">0</div><div class="label">facts lost</div></div>
       </div>
       <div class="install">
@@ -380,23 +380,23 @@
     </section>
 
     <section>
-      <h2>Benchmarks</h2>
+      <h2>Caveman Benchmark</h2>
       <table>
         <tr><th>Task</th><th>Normal</th><th>Laconic</th><th>Saved</th><th>vs Caveman</th></tr>
-        <tr><td>React re-render bug</td><td>901</td><td>102</td><td>89%</td><td class="positive">+2pp</td></tr>
-        <tr><td>Auth middleware fix</td><td>1125</td><td>85</td><td>92%</td><td class="positive">+9pp</td></tr>
-        <tr><td>PostgreSQL pool setup</td><td>2207</td><td>346</td><td>84%</td><td>0pp</td></tr>
-        <tr><td>Git rebase vs merge</td><td>899</td><td>389</td><td>57%</td><td>&minus;1pp</td></tr>
-        <tr><td>Callback to async/await</td><td>475</td><td>138</td><td>71%</td><td class="positive">+49pp</td></tr>
-        <tr><td>Microservices vs monolith</td><td>866</td><td>373</td><td>57%</td><td class="positive">+27pp</td></tr>
-        <tr><td>PR security review</td><td>957</td><td>226</td><td>76%</td><td class="positive">+35pp</td></tr>
-        <tr><td>Docker multi-stage</td><td>2396</td><td>346</td><td>86%</td><td class="positive">+14pp</td></tr>
-        <tr><td>PostgreSQL race condition</td><td>1409</td><td>107</td><td>92%</td><td class="positive">+11pp</td></tr>
-        <tr><td>React error boundary</td><td>4096</td><td>597</td><td>85%</td><td>&minus;2pp</td></tr>
-        <tr class="avg"><td>Average</td><td>1533</td><td>271</td><td>79%</td><td class="positive">+14pp</td></tr>
+        <tr><td>React re-render bug</td><td>940</td><td>100</td><td>89%</td><td class="positive">+2pp</td></tr>
+        <tr><td>Auth middleware fix</td><td>1292</td><td>58</td><td>96%</td><td class="positive">+13pp</td></tr>
+        <tr><td>PostgreSQL pool setup</td><td>2038</td><td>384</td><td>81%</td><td>&minus;3pp</td></tr>
+        <tr><td>Git rebase vs merge</td><td>987</td><td>399</td><td>60%</td><td class="positive">+2pp</td></tr>
+        <tr><td>Callback to async/await</td><td>454</td><td>195</td><td>57%</td><td class="positive">+35pp</td></tr>
+        <tr><td>Microservices vs monolith</td><td>956</td><td>334</td><td>65%</td><td class="positive">+35pp</td></tr>
+        <tr><td>PR security review</td><td>971</td><td>223</td><td>77%</td><td class="positive">+36pp</td></tr>
+        <tr><td>Docker multi-stage</td><td>2627</td><td>186</td><td>93%</td><td class="positive">+21pp</td></tr>
+        <tr><td>PostgreSQL race condition</td><td>1398</td><td>94</td><td>93%</td><td class="positive">+12pp</td></tr>
+        <tr><td>React error boundary</td><td>4096</td><td>579</td><td>86%</td><td>&minus;1pp</td></tr>
+        <tr class="avg"><td>Average</td><td>1576</td><td>255</td><td>80%</td><td class="positive">+15pp</td></tr>
       </table>
       <p style="font-size:0.65rem; color:var(--muted); margin-top:0.75rem;">
-        Claude Sonnet 4 via Langdock. Median of 3 trials. Same 10 prompts as caveman benchmark.
+        Claude Sonnet 4 via Langdock. Median of 3 trials. Range: 57%–96%. Same 10 prompts as Caveman benchmark (avg 64%).
       </p>
       <p style="font-size:0.7rem; color:var(--fg); margin-top:1rem; border-left:2px solid var(--accent); padding-left:0.75rem;">
         Output tokens only &mdash; thinking/reasoning untouched. Compression targets prose, not cognition. Biggest win is readability and speed; cost savings are a bonus.
@@ -405,30 +405,15 @@
 
     <section>
       <h2>Caveman vs Laconic</h2>
-      <div class="diff">
-        <div class="caveman">
-          <h3>Caveman</h3>
-          <ul>
-            <li>Grammar broken</li>
-            <li>Still explains mechanism</li>
-            <li>Articles always dropped</li>
-            <li>Shortest word wins</li>
-            <li>~65% savings</li>
-          </ul>
-        </div>
-        <div class="laconic">
-          <h3>Laconic</h3>
-          <ul>
-            <li>Grammar minimal but clean</li>
-            <li>Trusts context, skips known</li>
-            <li>Articles dropped unless ambiguous</li>
-            <li>Simplest common word</li>
-            <li>~79% savings</li>
-          </ul>
-        </div>
-      </div>
+      <table>
+        <tr><th></th><th>Caveman</th><th>Laconic</th></tr>
+        <tr><td>Tone</td><td>Primitive</td><td>Terse, Concealed wisdom</td></tr>
+        <tr><td>Explanation</td><td>Normal</td><td>Trusts context, skips what reader knows</td></tr>
+        <tr><td>Code</td><td>Normal</td><td>Just enough code</td></tr>
+        <tr><td>Token savings</td><td>~65%</td><td>~80%</td></tr>
+      </table>
       <p style="font-size:0.75rem; color:var(--fg); margin-top:1.5rem;">
-        Same compression, different voice. Caveman deletes grammar. Laconic finds verbosity offensive.
+        Laconic speech is not just brevity &mdash; it is the weaponization of implication.
       </p>
     </section>
 
