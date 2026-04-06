@@ -5,7 +5,7 @@
 <h1 align="center">laconic</h1>
 
 <p align="center">
-  <strong>Philip II: "If I bring my army into your land, I will destroy your farms, slay your people, and raze your city."<br/>Sparta: "If."</strong>
+  <strong>Philip II: "If I invade Laconia, I shall turn you out."<br/>Sparta: "If."</strong>
 </p>
 
 <p align="center">
