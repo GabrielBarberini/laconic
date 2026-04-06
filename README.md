@@ -110,7 +110,7 @@ Explains JWT spec, Unix timestamps vs JavaScript milliseconds, walks through mid
 | Tone | Primitive | Terse |
 | Explanation | Normal | Trusts context, skips what reader knows |
 | Code | Normal | Just enough code |
-| Token savings | ~65% | ~80% |
+| Token savings | ~65% | ~90% |
 
 ## Install
 
@@ -152,17 +152,6 @@ Trigger with:
 - `/laconic`
 - "laconic mode"
 - "be laconic"
-
-Stop with: "stop laconic" or "normal mode"
-
-## Caveman vs Laconic
-
-| | Caveman | Laconic |
-|--|---------|---------|
-| Tone | Primitive | Terse |
-| Explanation | Normal | Trusts context, skips what reader knows |
-| Code | Normal | Just enough code |
-| Token savings | ~65% | ~90% |
 
 ## License
 
