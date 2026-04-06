@@ -176,7 +176,7 @@ Stop with: "stop laconic" or "normal mode"
 | | Caveman | Laconic |
 |--|---------|---------|
 | Grammar | Broken | Minimal but clean |
-| Tone | Primitive | Terse, blunt |
+| Tone | Primitive | Terse, Concealed wisdow |
 | Articles | Always dropped | Dropped unless ambiguous |
 | Word choice | Shortest word | Simplest common word |
 | Explanation | Still explains | Trusts context, skips what reader knows |
