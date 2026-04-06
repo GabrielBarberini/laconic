@@ -19,8 +19,7 @@
   <a href="#install">Install</a> &bull;
   <a href="#benchmarks">Benchmarks</a> &bull;
   <a href="#examples">Examples</a> &bull;
-  <a href="#caveman-vs-laconic">Caveman vs Laconic</a> &bull;
-  <a href="#why">Why</a>
+  <a href="#caveman-vs-laconic">Caveman vs Laconic</a>
 </p>
 
 ---
@@ -181,13 +180,6 @@ Stop with: "stop laconic" or "normal mode"
 | Explanation | Normal | Trusts context, skips what reader knows |
 | Code | Normal | Just enough code |
 | Token savings | ~65% | ~80% |
-
-## Why
-
-- **Save money** — ~80% fewer output tokens
-- **Faster** — fewer tokens to generate
-- **Trusts the reader** — skips what is already known
-- **Preserves facts** — compresses words, not substance
 
 ## License
 
