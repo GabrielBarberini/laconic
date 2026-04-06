@@ -13,3 +13,6 @@ __pycache__/
 
 # OS
 .DS_Store
+
+# Agent local dirs
+.goose/
