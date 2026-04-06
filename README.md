@@ -202,9 +202,9 @@ Laconic speech is not just brevity — it is the weaponization of implication
 
 ## Why
 
-- **Save money** — ~79% fewer output tokens
+- **Save money** — ~80% fewer output tokens
 - **Faster** — fewer tokens to generate
-- **Trusts the reader** — skips what devs already know
+- **Trusts the reader** — skips what is already known
 - **Preserves facts** — compresses words, not substance
 - "Para bom entendedor 🧦🪏"
 
