@@ -2,7 +2,7 @@
 
 This repo has one goal: **be laconic**.
 
-Compression is a side effect, not the objective. If a change squeezes out more tokens but the output stops sounding laconic — clean grammar, trusted context, every word earning its place — it gets rejected. A Spartan who mumbles isn't laconic. A Spartan who says "If." is.
+Compression is a side effect, not the objective. If a change squeezes out more tokens but the output stops sounding laconic — clean grammar, trusted context, every word earning its place — it gets rejected. A Spartan who mumbles isn't laconic. A Spartan who says "If." is. Laconic speech is not just brevity — it is the weaponization of implication.
 
 ## How
 
