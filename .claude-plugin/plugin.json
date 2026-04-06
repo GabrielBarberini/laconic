@@ -1,6 +1,6 @@
 {
   "name": "laconic",
-  "description": "Brutally brief communication. Short common words, trust context, cut everything that can be inferred. ~75% fewer tokens.",
+  "description": "Brief prose. Short common words. Trust context. State what matters. Omit what reader can infer.",
   "author": {
     "name": "Gabriel Barberini",
     "url": "https://github.com/GabrielBarberini"

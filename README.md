@@ -24,33 +24,33 @@
 </p>
 
 ---
+Inspired by [caveman](https://github.com/JuliusBrussee/caveman). 
 
-A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skill that cuts **~80% of tokens** — short words, trusted context, implication over explanation.
-
-Inspired by [caveman](https://github.com/JuliusBrussee/caveman). Similar compression, different style.
+A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skill that cuts **~80% of tokens** — short words, just enough code, trusted context, implication over explanation.
 
 Every word earns its place. 
 
 ## Benchmarks
 
+### Caveman bench
 Real token counts from Claude Sonnet 4 via Langdock API. Each prompt sent with a generic system prompt ("You are a helpful assistant") vs the full laconic SKILL.md. Median of 3 trials per mode.
 
 <!-- BENCHMARK-TABLE-START -->
 | Task | Normal (tokens) | Laconic (tokens) | Saved | vs Caveman |
 |------|---------------:|----------------:|------:|-----------:|
-| Explain React re-render bug | 941 | 106 | 89% | +2pp |
-| Fix auth middleware token expiry | 1100 | 83 | 92% | +9pp |
-| Set up PostgreSQL connection pool | 2104 | 361 | 83% | −1pp |
-| Explain git rebase vs merge | 1004 | 347 | 65% | +7pp |
-| Refactor callback to async/await | 461 | 141 | 69% | +47pp |
-| Architecture: microservices vs monolith | 889 | 356 | 60% | +30pp |
-| Review PR for security issues | 758 | 244 | 68% | +27pp |
-| Docker multi-stage build | 2583 | 379 | 85% | +13pp |
-| Debug PostgreSQL race condition | 1339 | 197 | 85% | +4pp |
-| Implement React error boundary | 4096 | 658 | 84% | −3pp |
-| **Average** | **1528** | **287** | **78%** | **+14pp** |
+| Explain React re-render bug | 940 | 100 | 89% | +2pp |
+| Fix auth middleware token expiry | 1292 | 58 | 96% | +13pp |
+| Set up PostgreSQL connection pool | 2038 | 384 | 81% | −3pp |
+| Explain git rebase vs merge | 987 | 399 | 60% | +2pp |
+| Refactor callback to async/await | 454 | 195 | 57% | +35pp |
+| Architecture: microservices vs monolith | 956 | 334 | 65% | +35pp |
+| Review PR for security issues | 971 | 223 | 77% | +36pp |
+| Docker multi-stage build | 2627 | 186 | 93% | +21pp |
+| Debug PostgreSQL race condition | 1398 | 94 | 93% | +12pp |
+| Implement React error boundary | 4096 | 579 | 86% | −1pp |
+| **Average** | **1576** | **255** | **80%** | **+15pp** |
 
-*Range: 60%–92% savings across prompts. [Caveman benchmarks](https://github.com/JuliusBrussee/caveman#benchmarks) averaged 64%.*
+*Range: 57%–96% savings across prompts. [Caveman benchmarks](https://github.com/JuliusBrussee/caveman#benchmarks) averaged 64%.*
 <!-- BENCHMARK-TABLE-END -->
 
 > [!IMPORTANT]
@@ -131,10 +131,19 @@ python run.py --update-readme
 
 ## Install
 
-### Claude Code (skill)
+### Any agent (40+ supported)
 
 ```bash
 npx skills add GabrielBarberini/laconic
+```
+
+`npx skills` supports Claude Code, GitHub Copilot, Cursor, Windsurf, Cline, and [40+ more](https://github.com/vercel-labs/skills). To install for a specific agent:
+
+```bash
+npx skills add GabrielBarberini/laconic -a cursor
+npx skills add GabrielBarberini/laconic -a copilot
+npx skills add GabrielBarberini/laconic -a cline
+npx skills add GabrielBarberini/laconic -a windsurf
 ```
 
 ### Claude Code (plugin)
@@ -146,7 +155,15 @@ claude plugin install laconic@laconic
 
 ### Codex
 
-Install from the `.agents/plugins/marketplace.json` registry or copy the `plugins/laconic/` directory into your Codex plugins folder.
+1. Clone repo
+2. Open Codex in repo
+3. Run `/plugins`
+4. Search `Laconic`
+5. Install plugin
+
+Or copy the `plugins/laconic/` directory into your Codex plugins folder.
+
+Install once. Works in all sessions after that.
 
 ## Usage
 
@@ -170,17 +187,16 @@ Stop with: "stop laconic" or "normal mode"
 | Context | Assumes reader has domain knowledge — don't explain what a domain-aware individual already knows and don't restate what user says |
 | Technical substance | Preserved — compress words, not facts |
 | Error messages | Quoted verbatim |
+| Code | Just enough
 
 ## Caveman vs Laconic
 
 | | Caveman | Laconic |
 |--|---------|---------|
-| Grammar | Broken | Minimal but clean |
 | Tone | Primitive | Terse, Concealed wisdom |
-| Articles | Always dropped | Dropped unless ambiguous |
-| Word choice | Shortest word | Simplest common word |
-| Explanation | Still explains | Trusts context, skips what reader knows |
-| Token savings | ~65% | ~79% |
+| Explanation | Normal | Trusts context, skips what reader knows |
+| Code | Normal | Just enough code |
+| Token savings | ~65% | ~80% |
 
 Laconic speech is not just brevity — it is the weaponization of implication
 
