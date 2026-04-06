@@ -1,6 +1,8 @@
 # Contributing
 
-Improvements to `SKILL.md` are welcome. The bar is simple: run the benchmark, show it got better.
+This repo has one goal: **be laconic**.
+
+Compression is a side effect, not the objective. If a change squeezes out more tokens but the output stops sounding laconic — clean grammar, trusted context, every word earning its place — it gets rejected. A Spartan who mumbles isn't laconic. A Spartan who says "If." is.
 
 ## How
 
@@ -12,12 +14,16 @@ Improvements to `SKILL.md` are welcome. The bar is simple: run the benchmark, sh
    pip install -r requirements.txt
    python run.py
    ```
-4. Open a PR with the benchmark output showing improvement — either the regression test (same 10 prompts) or an extended run including your own prompts
+4. Open a PR with the benchmark output — either the regression test (same 10 prompts) or an extended run including your own prompts
 
-If savings go up or stay equal with better quality, it's a valuable change.
+## Acceptance
+
+- Benchmark savings stay equal or improve
+- Output still reads as laconic — not broken, not telegraphic, not caveman
+- Both conditions required. Numbers alone don't pass review
 
 ## Rules
 
 - Keep all 3 SKILL.md copies in sync (`skills/laconic/`, `laconic/`, `plugins/laconic/skills/laconic/`)
 - Small focused edits over rewrites
-- No templates needed — benchmark numbers speak for themselves
+- No templates needed — benchmark numbers and voice speak for themselves
