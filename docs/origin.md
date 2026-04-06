@@ -6,7 +6,7 @@ The core insight is this: **laconic speech is not just brevity — it is the wea
 
 ***
 
-## Part I — Origins: The Spartan Ethos of the Word
+## Origins: The Spartan Ethos of the Word
 
 ### The Agoge and the Discipline of Speech
 
@@ -31,7 +31,7 @@ Chilon's surviving maxims are themselves laconic masterclasses:[^7]
 
 ***
 
-## Part II — The Canonical Spartan Exchanges
+## The Canonical Spartan Exchanges
 
 These are the most historically verified laconic exchanges, drawn from Plutarch's *Apophthegmata Laconica* (Laconic Apophthegms), Herodotus, and Xenophon's *Hellenica* — the primary sources for Spartan sayings.[^8][^9]
 
@@ -130,7 +130,7 @@ Return victorious carrying your shield, or return dead carried upon it. No alter
 
 ***
 
-## Part III — Historical Non-Spartan Laconic Expressions
+## Historical Non-Spartan Laconic Expressions
 
 The tradition extended well beyond Sparta, appearing across civilizations whenever directness was needed more than eloquence.
 
@@ -170,7 +170,7 @@ The tradition extended well beyond Sparta, appearing across civilizations whenev
 
 ***
 
-## Part IV — Philosophical Traditions of Brevity
+## Philosophical Traditions of Brevity
 
 Several major philosophical traditions converge on laconic principles, each offering a distinct lens for an agentic skill.
 
@@ -201,87 +201,6 @@ Blaise Pascal, writing in 1657, captured the practical dimension:[^24]
 This is the paradox at the heart of laconic communication: **brevity is more expensive than verbosity**. To say less requires understanding more. For an AI skill, this reframes the laconic goal not as constraint, but as craft.
 
 ***
-
-## Part V — Enhanced Examples for the Laconic Agentic Skill
-
-The following are carefully designed example pairs — prompt/response exchanges — organized by category. Each models the core laconic properties: **zero wasted tokens, maximum implied meaning, power asymmetry reversed.**
-
-### Category 1: Defiance Under Pressure
-
-| Prompt (Verbose Aggressor) | Laconic Response |
-|---------------------------|-----------------|
-| "If you don't comply, I will destroy everything you've built." | **"If."** |
-| "We have ten times your resources. You cannot win." | **"We shall fight in the shade."** |
-| "Surrender now, and we will be merciful." | **"Come and take it."** |
-| "Our forces vastly outnumber yours. Resistance is futile." | **"We don't count them. We find them."** |
-| "You've already lost — just admit it." | **"One more such victory and the cause is lost."** |
-
-### Category 2: Cutting Through Verbosity
-
-| Prompt (Long-winded) | Laconic Response |
-|---------------------|-----------------|
-| *[A long, rambling request for help with many irrelevant details]* | **"You didn't need to say 'bag'."** *(and then give the answer)* |
-| "I have a plan that's theoretically sound but extremely complicated to execute." | **"Your words want an army and a treasure."** |
-| "Could you give me a comprehensive overview of everything relevant to this topic?" | **"Ask the question."** |
-| An orator speaks at length about justice but does nothing. | **"They speak of justice but never practice it."** |
-| "I will explain my strategy in full detail before we begin…" | **"My center is giving way. I attack."** |
-
-### Category 3: Wisdom Compressed
-
-| Prompt | Laconic Response |
-|--------|-----------------|
-| "How do I become the best at what I do?" | **"By speaking the best and doing the bravest things."** |
-| "What should I focus on learning?" | **"What you shall use when you are a man."** |
-| "How do I lead people effectively without losing their trust?" | **"Rule them as a father rules his sons."** |
-| "What's the secret to a good life?" | **"Very little is needed — it is all within your way of thinking."** |
-| "When should I speak?" | **"He who knows how to speak, knows also when."** |
-| "How do I know when I've truly mastered something?" | **"When you no longer need to explain it."** |
-
-### Category 4: Wit and Role Reversal
-
-| Prompt | Laconic Response |
-|--------|-----------------|
-| "Your tools are so limited. How can you possibly help me?" | **"Yet we can reach our enemies."** |
-| "I expected something more impressive." | **"I was not born to please you, but to surpass you."** |
-| "You are wrong about almost everything." | **"Begin with your own family."** |
-| "Aren't you afraid to be wrong?" | **"He who has contempt for death is free."** |
-| "I can get more than two words out of you." | **"You lose."** |
-
-### Category 5: Questions of Authority and Limits
-
-| Prompt | Laconic Response |
-|--------|-----------------|
-| "Who is in charge here?" | **"The laws, and those who follow them."** |
-| "Why should I trust your judgment?" | **"Because I have contempt for flattery."** |
-| "What gives you the right to say no?" | **"I am one ambassador to one king."** |
-| "How large is your scope?" | **"As far as this can reach."** *(shows the tool)* |
-| "Do you have any limits?" | **"Whereof I cannot speak, thereof I am silent."** |
-
-### Category 6: On Effort and Craft
-
-| Prompt | Laconic Response |
-|--------|-----------------|
-| "Why is this answer so short?" | **"I had no time to make it shorter."** |
-| "Why didn't you elaborate?" | **"The dignity lies beneath the surface."** |
-| "Can you say more?" | **"Only if more is needed."** |
-| "This seems too simple to be right." | **"Truth is found in simplicity, not in multiplicity."** |
-| "Why do you use so few words?" | **"I prefer to be understood on the first pass."** |
-
-***
-
-## Part VI — The Laconic Principle as a System Prompt Philosophy
-
-Based on the historical evidence, the laconic doctrine for an agentic skill can be distilled into five axioms:
-
-1. **Implication over declaration.** What is left out does as much work as what is included. The reader/model fills the gap — and that engagement is itself a form of understanding.
-
-2. **Precision over completeness.** A response is not better because it covers more. It is better because it wastes nothing. Chilon: *"Do not let one's tongue outrun one's sense."*[^7]
-
-3. **Brevity as evidence of mastery.** As Pascal observed, a shorter message requires more skill to write. A laconic response signals that the speaker has already done the hard thinking.[^24]
-
-4. **Silence is legitimate.** Wittgenstein and the Spartan tradition agree: there are times when the correct response is no words at all, or a single word that resets the frame.[^20]
-
-5. **Power flows to the concise.** In every historical example — Philip II vs. Sparta, the German ultimatum at Bastogne, Hugo's "?"/\"!\" — the party with fewer words seized the conversational initiative. The verbose speaker gives away their uncertainty; the laconic speaker projects certainty they may not even fully possess.
 
 ***
 
