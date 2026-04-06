@@ -33,7 +33,9 @@ jobs:
 
       - name: Rebuild laconic.skill ZIP
         run: |
-          cd skills && zip -r ../laconic.skill laconic/
+          cd skills
+          rm -f ../laconic.skill
+          zip -r ../laconic.skill laconic/
 
       - name: Commit and push if changed
         run: |

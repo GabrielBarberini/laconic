@@ -19,8 +19,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "Laconic",
-"shortDescription": "Brief prose. Short common words. Trust context. State what matters. Omit what reader can infer.",
-      "longDescription": "Brief prose. Short common words. Trust context. State what matters. Omit what reader can infer.",
+    "shortDescription": "Brief prose. Short common words. Trust context. State what matters. Omit what reader can infer.",
+    "longDescription": "Brief prose. Short common words. Trust context. State what matters. Omit what reader can infer.",
     "developerName": "Gabriel Barberini",
     "category": "Productivity",
     "capabilities": [
