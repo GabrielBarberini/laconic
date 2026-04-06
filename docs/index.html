@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>laconic</title>
   <meta name="description" content="Claude Code skill. 79% fewer tokens. Say less." />
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
   <style>
     :root {
       --bg: #0a0a0f;
@@ -23,9 +24,43 @@
       min-height: 100vh;
     }
 
+    /* Tabs */
+    nav.tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      padding-top: 1.5rem;
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      z-index: 10;
+    }
+    nav.tabs button {
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      color: var(--muted);
+      font-family: inherit;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      padding: 0.6rem 1.5rem;
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    nav.tabs button:hover { color: var(--fg); }
+    nav.tabs button.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
     .hero {
       text-align: center;
-      padding: 6rem 1.5rem 4rem;
+      padding: 4rem 1.5rem 4rem;
       max-width: 640px;
       margin: 0 auto;
     }
@@ -195,6 +230,100 @@
     .diff .caveman li::before { background: var(--muted); }
     .diff .laconic li::before { background: var(--accent); }
 
+    /* Origin tab — markdown rendering */
+    #origin-content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+      font-size: 0.82rem;
+      line-height: 1.8;
+    }
+    #origin-content h1 {
+      font-size: 1.6rem;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      color: var(--fg);
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.75rem;
+    }
+    #origin-content h2 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--accent);
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.4rem;
+    }
+    #origin-content h3 {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--fg);
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    #origin-content p {
+      margin-bottom: 1rem;
+      color: var(--fg);
+    }
+    #origin-content em { color: var(--muted); }
+    #origin-content strong { color: var(--accent); }
+    #origin-content blockquote {
+      border-left: 2px solid var(--accent);
+      padding-left: 1rem;
+      margin: 1rem 0;
+      color: var(--fg);
+      font-style: italic;
+    }
+    #origin-content blockquote strong {
+      font-style: normal;
+    }
+    #origin-content table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.75rem;
+    }
+    #origin-content th {
+      text-align: left;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+      padding: 0.4rem 0.5rem;
+    }
+    #origin-content td {
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      padding: 0.4rem 0.5rem;
+    }
+    #origin-content hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 2rem 0;
+    }
+    #origin-content a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    #origin-content a:hover { text-decoration: underline; }
+    #origin-content ol, #origin-content ul {
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    #origin-content li { margin-bottom: 0.3rem; }
+    #origin-content sup a {
+      color: var(--muted);
+      font-size: 0.7rem;
+    }
+    #origin-content code {
+      background: var(--code-bg);
+      padding: 0.15rem 0.4rem;
+      border-radius: 3px;
+      font-size: 0.78rem;
+    }
+
     footer {
       text-align: center;
       padding: 3rem 1.5rem;
@@ -207,98 +336,128 @@
 </head>
 <body>
 
-  <div class="hero">
-    <img src="https://raw.githubusercontent.com/GabrielBarberini/laconic/main/laconic.png" alt="laconic" />
-    <h1>laconic</h1>
-    <div class="quote">
-      Philip II: "If I bring my army into your land, I will destroy your farms, slay your people, and raze your city."<br/>
-      Sparta: <strong>"If."</strong>
+  <nav class="tabs">
+    <button class="active" onclick="showTab('home')">Home</button>
+    <button onclick="showTab('origin')">Origin</button>
+  </nav>
+
+  <div id="tab-home" class="tab-content active">
+
+    <div class="hero">
+      <img src="https://raw.githubusercontent.com/GabrielBarberini/laconic/main/laconic.png" alt="laconic" />
+      <h1>laconic</h1>
+      <div class="quote">
+        Philip II: "If I bring my army into your land, I will destroy your farms, slay your people, and raze your city."<br/>
+        Sparta: <strong>"If."</strong>
+      </div>
+      <div class="stat-row">
+        <div class="stat"><div class="num">79%</div><div class="label">tokens saved</div></div>
+        <div class="stat"><div class="num">+14pp</div><div class="label">vs caveman</div></div>
+        <div class="stat"><div class="num">0</div><div class="label">facts lost</div></div>
+      </div>
+      <div class="install">
+        <code onclick="navigator.clipboard.writeText('npx skills add GabrielBarberini/laconic')">npx skills add GabrielBarberini/laconic</code>
+        <div class="hint">click to copy</div>
+      </div>
     </div>
-    <div class="stat-row">
-      <div class="stat"><div class="num">79%</div><div class="label">tokens saved</div></div>
-      <div class="stat"><div class="num">+14pp</div><div class="label">vs caveman</div></div>
-      <div class="stat"><div class="num">0</div><div class="label">facts lost</div></div>
-    </div>
-    <div class="install">
-      <code onclick="navigator.clipboard.writeText('npx skills add GabrielBarberini/laconic')">npx skills add GabrielBarberini/laconic</code>
-      <div class="hint">click to copy</div>
-    </div>
+
+    <section>
+      <h2>Before / After</h2>
+      <div class="comparison">
+        <div class="col">
+          <h3>Normal <span>69 tok</span></h3>
+          <blockquote>"The reason your React component is re-rendering is likely because you're creating a new object reference on each render cycle. When you pass an inline object as a prop, React's shallow comparison sees it as a different object every time, which triggers a re-render. I'd recommend using useMemo to memoize the object."</blockquote>
+        </div>
+        <div class="col">
+          <h3>Caveman <span>19 tok</span></h3>
+          <blockquote>"New object ref each render. Inline object prop = new ref = re-render. Wrap in <code>useMemo</code>."</blockquote>
+        </div>
+        <div class="col laconic">
+          <h3>Laconic <span>10 tok</span></h3>
+          <blockquote>"Inline object prop creates new reference. Wrap in <code>useMemo</code>."</blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Benchmarks</h2>
+      <table>
+        <tr><th>Task</th><th>Normal</th><th>Laconic</th><th>Saved</th><th>vs Caveman</th></tr>
+        <tr><td>React re-render bug</td><td>901</td><td>102</td><td>89%</td><td class="positive">+2pp</td></tr>
+        <tr><td>Auth middleware fix</td><td>1125</td><td>85</td><td>92%</td><td class="positive">+9pp</td></tr>
+        <tr><td>PostgreSQL pool setup</td><td>2207</td><td>346</td><td>84%</td><td>0pp</td></tr>
+        <tr><td>Git rebase vs merge</td><td>899</td><td>389</td><td>57%</td><td>&minus;1pp</td></tr>
+        <tr><td>Callback to async/await</td><td>475</td><td>138</td><td>71%</td><td class="positive">+49pp</td></tr>
+        <tr><td>Microservices vs monolith</td><td>866</td><td>373</td><td>57%</td><td class="positive">+27pp</td></tr>
+        <tr><td>PR security review</td><td>957</td><td>226</td><td>76%</td><td class="positive">+35pp</td></tr>
+        <tr><td>Docker multi-stage</td><td>2396</td><td>346</td><td>86%</td><td class="positive">+14pp</td></tr>
+        <tr><td>PostgreSQL race condition</td><td>1409</td><td>107</td><td>92%</td><td class="positive">+11pp</td></tr>
+        <tr><td>React error boundary</td><td>4096</td><td>597</td><td>85%</td><td>&minus;2pp</td></tr>
+        <tr class="avg"><td>Average</td><td>1533</td><td>271</td><td>79%</td><td class="positive">+14pp</td></tr>
+      </table>
+      <p style="font-size:0.65rem; color:var(--muted); margin-top:0.75rem;">
+        Claude Sonnet 4 via Langdock. Median of 3 trials. Same 10 prompts as caveman benchmark.
+      </p>
+      <p style="font-size:0.7rem; color:var(--fg); margin-top:1rem; border-left:2px solid var(--accent); padding-left:0.75rem;">
+        Output tokens only &mdash; thinking/reasoning untouched. Compression targets prose, not cognition. Biggest win is readability and speed; cost savings are a bonus.
+      </p>
+    </section>
+
+    <section>
+      <h2>Caveman vs Laconic</h2>
+      <div class="diff">
+        <div class="caveman">
+          <h3>Caveman</h3>
+          <ul>
+            <li>Grammar broken</li>
+            <li>Still explains mechanism</li>
+            <li>Articles always dropped</li>
+            <li>Shortest word wins</li>
+            <li>~65% savings</li>
+          </ul>
+        </div>
+        <div class="laconic">
+          <h3>Laconic</h3>
+          <ul>
+            <li>Grammar minimal but clean</li>
+            <li>Trusts context, skips known</li>
+            <li>Articles dropped unless ambiguous</li>
+            <li>Simplest common word</li>
+            <li>~79% savings</li>
+          </ul>
+        </div>
+      </div>
+      <p style="font-size:0.75rem; color:var(--fg); margin-top:1.5rem;">
+        Same compression, different voice. Caveman deletes grammar. Laconic finds verbosity offensive.
+      </p>
+    </section>
+
   </div>
 
-  <section>
-    <h2>Before / After</h2>
-    <div class="comparison">
-      <div class="col">
-        <h3>Normal <span>69 tok</span></h3>
-        <blockquote>"The reason your React component is re-rendering is likely because you're creating a new object reference on each render cycle. When you pass an inline object as a prop, React's shallow comparison sees it as a different object every time, which triggers a re-render. I'd recommend using useMemo to memoize the object."</blockquote>
-      </div>
-      <div class="col">
-        <h3>Caveman <span>19 tok</span></h3>
-        <blockquote>"New object ref each render. Inline object prop = new ref = re-render. Wrap in <code>useMemo</code>."</blockquote>
-      </div>
-      <div class="col laconic">
-        <h3>Laconic <span>10 tok</span></h3>
-        <blockquote>"Inline object prop creates new reference. Wrap in <code>useMemo</code>."</blockquote>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <h2>Benchmarks</h2>
-    <table>
-      <tr><th>Task</th><th>Normal</th><th>Laconic</th><th>Saved</th><th>vs Caveman</th></tr>
-      <tr><td>React re-render bug</td><td>901</td><td>102</td><td>89%</td><td class="positive">+2pp</td></tr>
-      <tr><td>Auth middleware fix</td><td>1125</td><td>85</td><td>92%</td><td class="positive">+9pp</td></tr>
-      <tr><td>PostgreSQL pool setup</td><td>2207</td><td>346</td><td>84%</td><td>0pp</td></tr>
-      <tr><td>Git rebase vs merge</td><td>899</td><td>389</td><td>57%</td><td>&minus;1pp</td></tr>
-      <tr><td>Callback to async/await</td><td>475</td><td>138</td><td>71%</td><td class="positive">+49pp</td></tr>
-      <tr><td>Microservices vs monolith</td><td>866</td><td>373</td><td>57%</td><td class="positive">+27pp</td></tr>
-      <tr><td>PR security review</td><td>957</td><td>226</td><td>76%</td><td class="positive">+35pp</td></tr>
-      <tr><td>Docker multi-stage</td><td>2396</td><td>346</td><td>86%</td><td class="positive">+14pp</td></tr>
-      <tr><td>PostgreSQL race condition</td><td>1409</td><td>107</td><td>92%</td><td class="positive">+11pp</td></tr>
-      <tr><td>React error boundary</td><td>4096</td><td>597</td><td>85%</td><td>&minus;2pp</td></tr>
-      <tr class="avg"><td>Average</td><td>1533</td><td>271</td><td>79%</td><td class="positive">+14pp</td></tr>
-    </table>
-    <p style="font-size:0.65rem; color:var(--muted); margin-top:0.75rem;">
-      Claude Sonnet 4 via Langdock. Median of 3 trials. Same 10 prompts as caveman benchmark.
-    </p>
-    <p style="font-size:0.7rem; color:var(--fg); margin-top:1rem; border-left:2px solid var(--accent); padding-left:0.75rem;">
-      Output tokens only &mdash; thinking/reasoning untouched. Compression targets prose, not cognition. Biggest win is readability and speed; cost savings are a bonus.
-    </p>
-  </section>
-
-  <section>
-    <h2>Caveman vs Laconic</h2>
-    <div class="diff">
-      <div class="caveman">
-        <h3>Caveman</h3>
-        <ul>
-          <li>Grammar broken</li>
-          <li>Still explains mechanism</li>
-          <li>Articles always dropped</li>
-          <li>Shortest word wins</li>
-          <li>~65% savings</li>
-        </ul>
-      </div>
-      <div class="laconic">
-        <h3>Laconic</h3>
-        <ul>
-          <li>Grammar minimal but clean</li>
-          <li>Trusts context, skips known</li>
-          <li>Articles dropped unless ambiguous</li>
-          <li>Simplest common word</li>
-          <li>~79% savings</li>
-        </ul>
-      </div>
-    </div>
-    <p style="font-size:0.75rem; color:var(--fg); margin-top:1.5rem;">
-      Same compression, different voice. Caveman deletes grammar. Laconic finds verbosity offensive.
-    </p>
-  </section>
+  <div id="tab-origin" class="tab-content">
+    <div id="origin-content"></div>
+  </div>
 
   <footer>
     <a href="https://github.com/GabrielBarberini/laconic">GitHub</a> &middot; MIT &middot; Inspired by <a href="https://github.com/JuliusBrussee/caveman">caveman</a>
   </footer>
+
+  <script>
+    function showTab(tab) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('nav.tabs button').forEach(el => el.classList.remove('active'));
+      document.getElementById('tab-' + tab).classList.add('active');
+      document.querySelector('nav.tabs button[onclick*="' + tab + '"]').classList.add('active');
+
+      if (tab === 'origin' && !document.getElementById('origin-content').innerHTML) {
+        fetch('origin.md')
+          .then(r => r.text())
+          .then(md => {
+            document.getElementById('origin-content').innerHTML = marked.parse(md);
+          });
+      }
+    }
+  </script>
 
 </body>
 </html>
