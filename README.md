@@ -23,16 +23,21 @@
 </p>
 
 ---
+
+**laconic** is a skill for AI coding agents.
+
+It cuts filler.
+It keeps meaning.
+It trusts context.
+
+Think: short, clear, cold.
+
 Inspired by [caveman](https://github.com/JuliusBrussee/caveman). 
-
-A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skill that cuts **~80% of tokens** — short words, just enough code, trusted context, implication over explanation.
-
-Every word earns its place. 
 
 ## Benchmarks
 
-### Caveman bench
-Real token counts from Claude Sonnet 4 via Langdock API. Each prompt sent with a generic system prompt ("You are a helpful assistant") vs the full laconic SKILL.md. Median of 3 trials per mode.
+### Caveman Benchmark
+Claude Sonnet 4 via Langdock API. Each prompt: generic system prompt vs full laconic SKILL.md. Median of 3 runs per mode.
 
 <!-- BENCHMARK-TABLE-START -->
 | Task | Normal (tokens) | Laconic (tokens) | Saved | vs Caveman |
@@ -53,7 +58,7 @@ Real token counts from Claude Sonnet 4 via Langdock API. Each prompt sent with a
 <!-- BENCHMARK-TABLE-END -->
 
 > [!IMPORTANT]
-> Laconic only affects **output tokens** — thinking/reasoning tokens are untouched. Compression targets prose, not cognition. Biggest win is **readability and speed**; cost savings are a bonus.
+> Laconic cuts output tokens only.
 
 <details>
 <summary>Run benchmarks yourself</summary>
@@ -62,16 +67,10 @@ Real token counts from Claude Sonnet 4 via Langdock API. Each prompt sent with a
 cd benchmarks
 pip install -r requirements.txt
 
-# Add your Langdock API key to .env.local at the repo root
 echo "LANGDOCK_API_KEY=sk-your-key" > ../.env.local
 
-# Dry run (no API calls)
 python run.py --dry-run
-
-# Full run (60 API calls: 10 prompts x 2 modes x 3 trials)
 python run.py
-
-# Auto-update README table
 python run.py --update-readme
 ```
 
@@ -128,6 +127,15 @@ python run.py --update-readme
 </tr>
 </table>
 
+## Caveman vs Laconic
+
+| | Caveman | Laconic |
+|--|---------|---------|
+| Tone | Primitive | Terse |
+| Explanation | Normal | Trusts context, skips what reader knows |
+| Code | Normal | Just enough code |
+| Token savings | ~65% | ~80% |
+
 ## Install
 
 ### Any agent (40+ supported)
@@ -168,18 +176,6 @@ Trigger with:
 - `/laconic`
 - "laconic mode"
 - "be laconic"
-- "less tokens please"
-
-Stop with: "stop laconic" or "normal mode"
-
-## Caveman vs Laconic
-
-| | Caveman | Laconic |
-|--|---------|---------|
-| Tone | Primitive | Terse |
-| Explanation | Normal | Trusts context, skips what reader knows |
-| Code | Normal | Just enough code |
-| Token savings | ~65% | ~80% |
 
 ## License
 
