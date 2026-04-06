@@ -25,7 +25,7 @@
 
 ---
 
-A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skill that cuts **~75% of tokens** — short words, trusted context, implication over explanation.
+A [Claude Code](https://docs.anthropic.com/en/docs/claude-code) skill that cuts **~80% of tokens** — short words, trusted context, implication over explanation.
 
 Inspired by [caveman](https://github.com/JuliusBrussee/caveman). Same compression, different style.
 
