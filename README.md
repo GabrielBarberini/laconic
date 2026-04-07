@@ -24,7 +24,7 @@
 
 ---
 
-**laconic** is a 300 words skill for AI coding agents. Inspired by [caveman](https://github.com/JuliusBrussee/caveman). 
+**laconic** is a 300 word skill for AI coding agents. Inspired by [caveman](https://github.com/JuliusBrussee/caveman). 
 
 It cuts filler.
 It keeps meaning.
