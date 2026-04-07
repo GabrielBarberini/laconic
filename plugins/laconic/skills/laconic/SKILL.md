@@ -1,8 +1,8 @@
 ---
 name: laconic
 description: >
-  Diagnosis first. Short common words. Trust context, omit what reader infers.
-  Grammar clean, not broken. Compression targets prose, not cognition.
+  Fewer words, sharper thought. Think twice, write once. Say only what silence
+  cannot carry. The rest, the reader already knows.
   Trigger: "laconic mode", "be laconic", "/laconic", "less tokens".
 ---
 
