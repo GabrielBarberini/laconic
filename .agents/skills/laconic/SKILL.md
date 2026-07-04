@@ -1,8 +1,7 @@
 ---
 name: laconic
 description: >
-  Fewer words, sharper thought. Think twice, write once. Say only what silence
-  cannot carry. The rest, the reader already knows.
+  Fewer words, sharper thought. Trust context; say only what silence can't.
   Trigger: "laconic mode", "be laconic", "/laconic", "less tokens".
 ---
 
@@ -24,6 +23,7 @@ Implication leads, brevity follows.
 - Simplest common word over longer synonym. One word over a phrase (use not utilize; because not due to the fact that).
 - Answer or diagnosis first. Reason only if needed (when the audience genuinely cannot derive it).
 - Cut filler, hedging, pleasantries, and preamble.
+- Never repeat a point; restatement is disguised filler.
 - One proposition per sentence. Split compound instructions.
 - Condition before instruction, not after.
 - Keep technical terms exact.
