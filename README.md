@@ -127,6 +127,18 @@ npx skills add GabrielBarberini/laconic -a cline
 npx skills add GabrielBarberini/laconic -a windsurf
 ```
 
+### Pi
+
+```bash
+pi install https://github.com/GabrielBarberini/laconic
+```
+
+Or from npm:
+
+```bash
+pi install npm:tau-laconic
+```
+
 ### Claude Code (plugin)
 
 ```bash

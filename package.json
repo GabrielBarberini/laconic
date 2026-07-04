@@ -1,0 +1,34 @@
+{
+  "name": "tau-laconic",
+  "version": "0.1.0",
+  "description": "Fewer words, sharper thought. Think twice, write once. Say only what silence cannot carry. The rest, the reader already knows.",
+  "keywords": [
+    "pi-package",
+    "skill",
+    "laconic",
+    "caveman",
+    "token-optimization",
+    "brevity"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "Gabriel Barberini",
+    "url": "https://github.com/GabrielBarberini"
+  },
+  "homepage": "https://github.com/GabrielBarberini/laconic#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GabrielBarberini/laconic.git"
+  },
+  "bugs": {
+    "url": "https://github.com/GabrielBarberini/laconic/issues"
+  },
+  "files": [
+    "skills"
+  ],
+  "pi": {
+    "skills": [
+      "./skills"
+    ]
+  }
+}
