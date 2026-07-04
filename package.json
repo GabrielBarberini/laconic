@@ -1,10 +1,11 @@
 {
   "name": "tau-laconic",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Fewer words, sharper thought. Trust context; say only what silence can't.",
   "keywords": [
     "pi-package",
     "skill",
+    "extension",
     "laconic",
     "caveman",
     "token-optimization",
@@ -24,9 +25,16 @@
     "url": "https://github.com/GabrielBarberini/laconic/issues"
   },
   "files": [
-    "skills"
+    "skills",
+    "extensions"
   ],
+  "peerDependencies": {
+    "@earendil-works/pi-coding-agent": "*"
+  },
   "pi": {
+    "extensions": [
+      "./extensions/laconic.ts"
+    ],
     "skills": [
       "./skills"
     ]
