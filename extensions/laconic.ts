@@ -1,7 +1,5 @@
 /**
- * Laconic — pi extension driving the laconic skill. Pi-only; the skill
- * (`skills/laconic/SKILL.md`) stays the artifact every other harness uses.
- * Rules are read from that SKILL.md at load time, so the two never diverge.
+ * Laconic — pi extension driving the laconic skill. Pi-only.
  *
  * One switch: full laconic or off.
  *   - `/laconic [on|off]` — toggle (no arg flips).
