@@ -1,19 +1,13 @@
 /**
- * Laconic — a pi extension layering interactive control over the laconic skill.
+ * Laconic — pi extension driving the laconic skill. Pi-only; the skill
+ * (`skills/laconic/SKILL.md`) stays the artifact every other harness uses.
+ * Rules are read from that SKILL.md at load time, so the two never diverge.
  *
- * The universal artifact is `skills/laconic/SKILL.md`, consumed by every
- * harness laconic supports (npx skills, Claude Code, Codex, and pi's own
- * skill loader). This extension is pi-only: it does not replace the skill,
- * it drives it. The `## Rules` and `## Pattern` sections are read straight
- * from that SKILL.md at load time, so the extension and the skill never
- * diverge — edit the skill, the extension follows.
- *
- * One switch: full laconic (as the skill proposes) or off.
- *   - `/laconic [on|off]` — toggle terse mode (no argument flips it).
- *   - Natural-language activation ("be laconic", "less tokens", "normal mode").
- *   - Per-turn system-prompt injection while on.
- *   - A `laconic` statusline indicator.
- *   - Per-project persistence in `.pi/laconic-mode.json`.
+ * One switch: full laconic or off.
+ *   - `/laconic [on|off]` — toggle (no arg flips).
+ *   - Natural-language triggers ("be laconic", "less tokens", "normal mode").
+ *   - Injects the rules into the system prompt while on.
+ *   - `laconic` statusline; per-project state in `.pi/laconic-mode.json`.
  */
 
 import type {
@@ -95,7 +89,7 @@ function writeProjectState(cwd: string, active: boolean): void {
     mkdirSync(join(cwd, ".pi"), { recursive: true });
     writeFileSync(join(cwd, STATE_FILE), `${JSON.stringify({ active })}\n`, "utf8");
   } catch {
-    /* best-effort persistence; a read-only cwd must not break the turn */
+    /* best-effort; a read-only cwd must not break the turn */
   }
 }
 
@@ -120,7 +114,7 @@ export default function laconic(pi: ExtensionAPI): void {
   });
 
   pi.registerCommand("laconic", {
-    description: "Toggle laconic terse-output mode: /laconic [on|off].",
+    description: "Toggle laconic mode: /laconic [on|off].",
     handler: async (args: string, ctx: ExtensionContext) => {
       const arg = (args || "").trim().toLowerCase();
       let next: boolean;

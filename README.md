@@ -139,7 +139,7 @@ Or from npm:
 pi install npm:tau-laconic
 ```
 
-On pi you get both the skill and an extension: a `/laconic [on|off]` toggle (full laconic or off — no half measures), natural-language activation ("be laconic", "less tokens", "normal mode"), a `laconic` statusline, and per-project persistence in `.pi/laconic-mode.json`. The extension reads its rules from the same `SKILL.md`, so it never drifts from the other harnesses.
+On pi you also get an extension: `/laconic [on|off]` (full laconic or off), natural-language triggers ("be laconic", "normal mode"), a `laconic` statusline, and per-project state in `.pi/laconic-mode.json`. It reads its rules from the same `SKILL.md`, so it never drifts.
 
 ### Claude Code (plugin)
 
