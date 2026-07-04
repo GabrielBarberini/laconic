@@ -8,11 +8,11 @@
  * from that SKILL.md at load time, so the extension and the skill never
  * diverge — edit the skill, the extension follows.
  *
- * Adds:
- *   - `/laconic [low|medium|high|off]` — toggle terse mode for the session.
+ * One switch: full laconic (as the skill proposes) or off.
+ *   - `/laconic [on|off]` — toggle terse mode (no argument flips it).
  *   - Natural-language activation ("be laconic", "less tokens", "normal mode").
- *   - Per-turn system-prompt injection scaled by intensity.
- *   - A `laconic:<mode>` statusline indicator.
+ *   - Per-turn system-prompt injection while on.
+ *   - A `laconic` statusline indicator.
  *   - Per-project persistence in `.pi/laconic-mode.json`.
  */
 
@@ -24,18 +24,8 @@ import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
-type Mode = "off" | "low" | "medium" | "high";
-
-const MODES: readonly Mode[] = ["off", "low", "medium", "high"];
 const STATUS_KEY = "laconic";
 const STATE_FILE = join(".pi", "laconic-mode.json");
-
-const INTENSITY: Record<Exclude<Mode, "off">, string> = {
-  low: "Drop filler, hedging, and pleasantries. Keep full sentences and articles.",
-  medium:
-    "Drop articles, filler, pleasantries, and hedging. Sentence fragments are fine.",
-  high: "Extreme compression. Bare fragments. Abbreviate prose words; use arrows (X -> Y). Never pad.",
-};
 
 const ACTIVATE_RE =
   /\b(laconic mode|be laconic|use laconic|talk like a spartan|less tokens|fewer tokens|save tokens|be brief)\b/i;
@@ -91,19 +81,19 @@ function extractSections(body: string, headings: readonly string[]): string {
     .join("\n\n");
 }
 
-function readProjectMode(cwd: string): Mode {
+function readProjectState(cwd: string): boolean {
   try {
     const parsed = JSON.parse(readFileSync(join(cwd, STATE_FILE), "utf8"));
-    return MODES.includes(parsed?.mode) ? (parsed.mode as Mode) : "off";
+    return parsed?.active === true;
   } catch {
-    return "off";
+    return false;
   }
 }
 
-function writeProjectMode(cwd: string, mode: Mode): void {
+function writeProjectState(cwd: string, active: boolean): void {
   try {
     mkdirSync(join(cwd, ".pi"), { recursive: true });
-    writeFileSync(join(cwd, STATE_FILE), `${JSON.stringify({ mode })}\n`, "utf8");
+    writeFileSync(join(cwd, STATE_FILE), `${JSON.stringify({ active })}\n`, "utf8");
   } catch {
     /* best-effort persistence; a read-only cwd must not break the turn */
   }
@@ -111,53 +101,50 @@ function writeProjectMode(cwd: string, mode: Mode): void {
 
 export default function laconic(pi: ExtensionAPI): void {
   const contract = loadSkillContract();
-  let mode: Mode = "off";
+  let active = false;
 
   const refreshStatus = (ctx: ExtensionContext): void => {
     if (!ctx.ui.isInteractive) return;
-    ctx.ui.setStatus(STATUS_KEY, mode === "off" ? undefined : `laconic:${mode}`);
+    ctx.ui.setStatus(STATUS_KEY, active ? "laconic" : undefined);
   };
 
-  const setMode = (next: Mode, ctx: ExtensionContext): void => {
-    mode = next;
-    writeProjectMode(process.cwd(), mode);
+  const setActive = (next: boolean, ctx: ExtensionContext): void => {
+    active = next;
+    writeProjectState(process.cwd(), active);
     refreshStatus(ctx);
   };
 
   pi.on("session_start", async (_event, ctx) => {
-    mode = readProjectMode(process.cwd());
+    active = readProjectState(process.cwd());
     refreshStatus(ctx);
   });
 
   pi.registerCommand("laconic", {
-    description:
-      "Toggle laconic terse-output mode: /laconic [low|medium|high|off] (default medium).",
+    description: "Toggle laconic terse-output mode: /laconic [on|off].",
     handler: async (args: string, ctx: ExtensionContext) => {
       const arg = (args || "").trim().toLowerCase();
-      let next: Mode | null = null;
-      if (arg === "") next = "medium";
-      else if ((MODES as readonly string[]).includes(arg)) next = arg as Mode;
-
-      if (next === null) {
-        ctx.ui.notify(
-          `laconic: unknown mode '${arg}' — use low|medium|high|off`,
-          "info",
-        );
+      let next: boolean;
+      if (arg === "") next = !active;
+      else if (arg === "on") next = true;
+      else if (arg === "off") next = false;
+      else {
+        ctx.ui.notify(`laconic: unknown argument '${arg}' — use on|off`, "info");
         return;
       }
-      setMode(next, ctx);
-      ctx.ui.notify(mode === "off" ? "laconic: off" : `laconic: ${mode}`, "info");
+      setActive(next, ctx);
+      ctx.ui.notify(active ? "laconic: on" : "laconic: off", "info");
     },
   });
 
   pi.on("before_agent_start", async (event, ctx) => {
     const prompt = event.prompt ?? "";
-    if (DEACTIVATE_RE.test(prompt)) setMode("off", ctx);
-    else if (mode === "off" && ACTIVATE_RE.test(prompt)) setMode("medium", ctx);
+    if (DEACTIVATE_RE.test(prompt)) setActive(false, ctx);
+    else if (!active && ACTIVATE_RE.test(prompt)) setActive(true, ctx);
 
-    if (mode === "off") return;
+    if (!active) return;
 
-    const injection = `\n\n# Laconic mode (${mode})\n${INTENSITY[mode]}\n\n${contract}`;
-    return { systemPrompt: event.systemPrompt + injection };
+    return {
+      systemPrompt: `${event.systemPrompt}\n\n# Laconic mode\n\n${contract}`,
+    };
   });
 }
